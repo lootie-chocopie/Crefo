@@ -203,33 +203,42 @@ body.loading{overflow:hidden}
 @keyframes ldSpin { to { transform: rotate(360deg); } }
 
 /* ---------- Counter (HIGH VISIBILITY) ---------- */
+/* ---------- Counter (MAX VISIBILITY) ---------- */
 .loader-counter{
-  font-family:var(--font-d);
-  font-size:clamp(3.5rem,9vw,7rem);
-  font-weight:600;
-  letter-spacing:-.05em;
+  font-family:'Clash Display','JetBrains Mono',monospace;
+  font-size:clamp(4.5rem,12vw,8.5rem);
+  font-weight:700;
+  letter-spacing:-.04em;
   line-height:1;
-  display:flex;align-items:baseline;
+  display:inline-flex;
+  align-items:baseline;
+  justify-content:center;
   color:#ffffff;
-  text-shadow:
-    0 0 20px rgba(0,212,255,.9),
-    0 0 40px rgba(30,107,255,.7),
-    0 0 80px rgba(255,45,85,.4);
+  background:#000000;
+  padding:.15em .5em .05em;
+  border-radius:20px;
+  border:2px solid #00d4ff;
+  box-shadow:
+    0 0 0 4px rgba(5,6,10,.9),
+    0 0 40px rgba(0,212,255,.7),
+    0 0 80px rgba(0,212,255,.35),
+    inset 0 0 30px rgba(0,212,255,.15);
+  text-shadow:0 0 1px #ffffff;
   position:relative;
+  font-variant-numeric:tabular-nums;
+  min-width:4.5ch;
 }
-.loader-counter::before{
-  content:'';
-  position:absolute;inset:-20px -40px;
-  background:radial-gradient(ellipse at center,rgba(0,212,255,.15),transparent 70%);
-  pointer-events:none;
-  z-index:-1;
-}
+.loader-counter::before{display:none}
 .loader-counter .pct{
-  font-size:.38em;margin-left:.12em;
-  color:rgba(255,255,255,.75);
-  text-shadow:0 0 12px rgba(0,212,255,.6);
+  font-size:.32em;
+  margin-left:.18em;
+  color:#00d4ff;
+  text-shadow:0 0 20px #00d4ff;
+  -webkit-text-fill-color:#00d4ff;
+  font-weight:600;
+  align-self:flex-end;
+  padding-bottom:.15em;
 }
-
 /* ---------- Status ---------- */
 .loader-status{
   font-family:var(--font-m);font-size:.82rem;
