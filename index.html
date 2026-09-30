@@ -911,24 +911,27 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   .ft-bot{flex-direction:column;text-align:center}
   .rev{width:300px;padding:1.5rem}
   .scroll-hint{display:none}
-    .about-media{
-    grid-template-columns:1fr;
-    grid-template-rows:auto auto auto;
-    grid-template-areas:"big" "tall" "short";
+  .about-media{
+    display:block;
     height:auto;
-    gap:.75rem;
+    position:relative;
   }
   .about-cell,
   .about-cell-1,
   .about-cell-2,
   .about-cell-3{
-    aspect-ratio:16/10;
+    position:relative;
     width:100%;
     height:auto;
+    aspect-ratio:16/10;
+    margin-bottom:.85rem;
+    transform:none !important;    /* ← kills parallax offset */
   }
+  .about-cell:last-child{margin-bottom:0}
+  .about-cell-1{aspect-ratio:16/10}   /* same as others — uniform */
   .about-badge{
-    bottom:.75rem;
-    left:.75rem;
+    bottom:.85rem;
+    left:.85rem;
     font-size:.6rem;
     padding:.5rem .85rem;
   }
