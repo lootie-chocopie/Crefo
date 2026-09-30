@@ -911,9 +911,27 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   .ft-bot{flex-direction:column;text-align:center}
   .rev{width:300px;padding:1.5rem}
   .scroll-hint{display:none}
-  .about-media{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"big" "tall" "short";height:auto}
-  .about-cell{aspect-ratio:4/3}
-  .about-cell-1{aspect-ratio:4/5}
+    .about-media{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto auto;
+    grid-template-areas:"big" "tall" "short";
+    height:auto;
+    gap:.75rem;
+  }
+  .about-cell,
+  .about-cell-1,
+  .about-cell-2,
+  .about-cell-3{
+    aspect-ratio:16/10;
+    width:100%;
+    height:auto;
+  }
+  .about-badge{
+    bottom:.75rem;
+    left:.75rem;
+    font-size:.6rem;
+    padding:.5rem .85rem;
+  }
   .stats-bar-shell{grid-template-columns:1fr;gap:2.5rem}
   .stat-big:not(:last-child)::after{display:none}
   .stats-bar{padding:4rem 1.5rem}
