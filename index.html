@@ -134,19 +134,24 @@ body.loading{overflow:hidden}
 }
 .loader-shield{
   width:200px;height:200px;position:relative;
-  filter:
-    drop-shadow(0 0 24px rgba(30,107,255,.75))
-    drop-shadow(0 0 24px rgba(255,45,85,.65));
 }
-.loader-shield::before{display:none}
 .loader-shield svg{
   width:100%;height:100%;display:block;
   overflow:visible;
+  filter:
+    drop-shadow(0 0 16px rgba(30,107,255,.7))
+    drop-shadow(0 0 16px rgba(255,45,85,.6));
 }
 .loader-shield .ld-path{
   fill:none;
   stroke-linecap:round;
   stroke-linejoin:round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.loader-shield .ld-divider{
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
 }
 .loader-shield .ld-node{
   filter:drop-shadow(0 0 6px currentColor);
@@ -884,67 +889,44 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 
   <div class="loader-center">
     <div class="loader-shield">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="ld-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#00d4ff"/>
-          </linearGradient>
-          <linearGradient id="ld-red" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#ff2d55"/><stop offset="100%" stop-color="#ff6b3d"/>
-          </linearGradient>
-          <filter id="ldGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2.5" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
+   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ld-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+    <linearGradient id="ld-red" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff2d55"/><stop offset="100%" stop-color="#ff6b3d"/>
+    </linearGradient>
+  </defs>
 
-        <!-- Static faint hexagon guide -->
-        <polygon points="100,15 175,50 175,120 100,185 25,120 25,50"
-          fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+  <polygon points="100,15 175,50 175,120 100,185 25,120 25,50"
+    fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
 
-        <!-- Rotating dashed hex ring -->
-        <polygon class="ld-hex-ring" points="100,10 180,48 180,122 100,190 20,122 20,48"
-          fill="none" stroke="rgba(30,107,255,.28)" stroke-width="1"
-          stroke-dasharray="4 8" style="transform-origin:100px 100px"/>
+  <polygon class="ld-hex-ring" points="100,10 180,48 180,122 100,190 20,122 20,48"
+    fill="none" stroke="rgba(30,107,255,.28)" stroke-width="1"
+    stroke-dasharray="4 8" style="transform-origin:100px 100px"/>
 
-        <!-- Shield LEFT (BLUE) -->
-        <path class="ld-path ld-left"
-          d="M100 25 L50 45 L50 105 C50 145 72 172 100 185"
-          stroke="url(#ld-blue)" stroke-width="4" filter="url(#ldGlow)"/>
+  <!-- ✅ pathLength="1" bypasses getTotalLength() -->
+  <path class="ld-path ld-left" pathLength="1"
+    d="M100 25 L50 45 L50 105 C50 145 72 172 100 185"
+    stroke="url(#ld-blue)" stroke-width="4"/>
 
-        <!-- Shield RIGHT (RED) -->
-        <path class="ld-path ld-right"
-          d="M100 25 L150 45 L150 105 C150 145 128 172 100 185"
-          stroke="url(#ld-red)" stroke-width="4" filter="url(#ldGlow)"/>
+  <path class="ld-path ld-right" pathLength="1"
+    d="M100 25 L150 45 L150 105 C150 145 128 172 100 185"
+    stroke="url(#ld-red)" stroke-width="4"/>
 
-        <!-- Divider -->
-        <line class="ld-path ld-divider" x1="100" y1="25" x2="100" y2="185"
-          stroke="rgba(255,255,255,.45)" stroke-width="1" filter="url(#ldGlow)"/>
+  <line class="ld-path ld-divider" pathLength="1" x1="100" y1="25" x2="100" y2="185"
+    stroke="rgba(255,255,255,.45)" stroke-width="1"/>
 
-        <!-- Center C -->
-        <path class="ld-path ld-center-c"
-          d="M128 72 C118 60 92 60 80 78 C70 96 74 118 88 130 C100 140 122 138 128 122"
-          stroke="rgba(255,255,255,.95)" stroke-width="3.5" filter="url(#ldGlow)"/>
+  <path class="ld-path ld-center-c" pathLength="1"
+    d="M128 72 C118 60 92 60 80 78 C70 96 74 118 88 130 C100 140 122 138 128 122"
+    stroke="rgba(255,255,255,.95)" stroke-width="3.5"/>
 
-        <!-- Nodes -->
-        <circle class="ld-node" cx="100" cy="25" r="4" fill="#00d4ff"/>
-        <circle class="ld-node" cx="100" cy="185" r="4" fill="#ff6b3d"/>
-        <circle class="ld-node" cx="50" cy="105" r="3.5" fill="#1e6bff"/>
-        <circle class="ld-node" cx="150" cy="105" r="3.5" fill="#ff2d55"/>
-
-        <!-- Orbiting particles -->
-        <circle r="2" fill="#ffffff" opacity=".9">
-          <animateMotion dur="3.5s" repeatCount="indefinite"
-            path="M100 25 L150 45 L150 105 C150 145 128 172 100 185 L50 105 L50 45 Z"/>
-        </circle>
-        <circle r="1.5" fill="#00d4ff" opacity=".85">
-          <animateMotion dur="5s" repeatCount="indefinite"
-            path="M100 25 L50 45 L50 105 C50 145 72 172 100 185 L150 105 L150 45 Z"/>
-        </circle>
-      </svg>
+  <circle class="ld-node" cx="100" cy="25" r="4" fill="#00d4ff"/>
+  <circle class="ld-node" cx="100" cy="185" r="4" fill="#ff6b3d"/>
+  <circle class="ld-node" cx="50" cy="105" r="3.5" fill="#1e6bff"/>
+  <circle class="ld-node" cx="150" cy="105" r="3.5" fill="#ff2d55"/>
+</svg>
     </div>
 
     <div class="loader-counter">
@@ -1465,6 +1447,7 @@ const statusMessages = [
 ];
 
 /* ---------- Prepare shield paths ---------- */
+/* ---------- Prepare shield paths (NO getTotalLength) ---------- */
 const ldLeft    = document.querySelector('.ld-left');
 const ldRight   = document.querySelector('.ld-right');
 const ldC       = document.querySelector('.ld-center-c');
@@ -1472,13 +1455,8 @@ const ldDivider = document.querySelector('.ld-divider');
 const ldNodes   = document.querySelectorAll('.ld-node');
 const ldHexRing = document.querySelector('.ld-hex-ring');
 
-[ldLeft, ldRight, ldC].forEach(p => {
-  const len = p.getTotalLength();
-  p.style.strokeDasharray  = len;
-  p.style.strokeDashoffset = len;
-});
+gsap.set([ldLeft, ldRight, ldC, ldDivider], { strokeDashoffset: 1 });
 gsap.set(ldNodes,    {scale:0, opacity:0, transformOrigin:'center center'});
-gsap.set(ldDivider,  {opacity:0});
 gsap.set(ldHexRing,  {transformOrigin:'100px 100px'});
 
 /* Rotating hex ring */
@@ -1490,7 +1468,6 @@ let statusIdx = 0;
 
 const ldMaster = gsap.timeline({
   onComplete: () => {
-    /* Everything drawn + counter at 100 → Access Granted, then curtains */
     gsap.timeline({defaults:{ease:'power3.out'}})
       .to(ldStamp, {opacity:1, scale:1, duration:.7})
       .to(ldStamp, {opacity:1, duration:.55})
@@ -1511,17 +1488,17 @@ const ldMaster = gsap.timeline({
   }
 });
 
-/* Shield drawing — simultaneous L + R, then C, then nodes */
+/* Draw shield: dashoffset 1 → 0 (no getTotalLength needed) */
 ldMaster
   .to(ldLeft,    {strokeDashoffset:0, duration:2.4, ease:'power2.inOut'}, 0)
   .to(ldRight,   {strokeDashoffset:0, duration:2.4, ease:'power2.inOut'}, 0)
-  .to(ldDivider, {opacity:1, duration:.4}, 1.4)
+  .to(ldDivider, {strokeDashoffset:0, duration:.4}, 1.4)
   .to(ldC,       {strokeDashoffset:0, duration:1.8, ease:'power2.inOut'}, 1.1)
   .to(ldNodes,   {
     scale:1, opacity:1, duration:.5, stagger:.1, ease:'back.out(2.5)'
   }, 2.5);
 
-/* Counter runs in parallel, finishes with the master */
+/* Counter runs in parallel */
 ldMaster.to(ldCounter, {
   val: 100,
   duration: 3.2,
@@ -1530,11 +1507,7 @@ ldMaster.to(ldCounter, {
     const v = ldCounter.val;
     ldCount.textContent = String(Math.floor(v)).padStart(2,'0');
     ldBar.style.width = v + '%';
-
-    const idx = Math.min(
-      Math.floor(v / 100 * statusMessages.length),
-      statusMessages.length - 1
-    );
+    const idx = Math.min(Math.floor(v / 100 * statusMessages.length), statusMessages.length - 1);
     if (idx !== statusIdx) {
       statusIdx = idx;
       ldStatus.textContent = statusMessages[idx];
@@ -1543,7 +1516,7 @@ ldMaster.to(ldCounter, {
   }
 }, 0);
 
-/* Safety fallback */
+/* Safety fallback — if something goes wrong, just show the site */
 setTimeout(() => {
   if(loader && loader.style.display !== 'none'){
     loader.style.display = 'none';
