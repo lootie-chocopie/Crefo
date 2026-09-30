@@ -6,10 +6,11 @@
 <title>Crefo Technologies — Defensive & Offensive IT Excellence</title>
 <meta name="description" content="Crefo Technologies — Enterprise IT services, governance, and cyber defense. Coimbatore's premier tech partner for ISO 27001, ISO 22301, networking, and laptop service.">
 
-<!-- Premium Fonts -->
+<!-- Fonts: Clash Display + Sora + Instrument Serif + JetBrains Mono -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600&f[]=jetbrains-mono@400,500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -25,6 +26,7 @@
   --bg-3:#0f1220;
   --ink:#f2f3f7;
   --ink-2:#8a90a8;
+  --ink-3:#5a5f75;
   --blue:#1e6bff;
   --blue-2:#00d4ff;
   --blue-glow:rgba(30,107,255,.4);
@@ -35,28 +37,30 @@
   --grad-off:linear-gradient(135deg,#ff2d55 0%,#ff6b3d 100%);
   --grad-dual:linear-gradient(135deg,#1e6bff 0%,#00d4ff 40%,#ff2d55 60%,#ff6b3d 100%);
   --font-d:'Clash Display','Space Grotesk',sans-serif;
-  --font-b:'General Sans','Inter',sans-serif;
+  --font-b:'Sora','Inter',sans-serif;
+  --font-s:'Instrument Serif',serif;
   --font-m:'JetBrains Mono',monospace;
 }
 html{scroll-behavior:initial}
 body{
   font-family:var(--font-b);
+  font-weight:400;
   background:var(--bg);
   color:var(--ink);
   overflow-x:hidden;
   cursor:none;
   -webkit-font-smoothing:antialiased;
+  line-height:1.6;
 }
 ::selection{background:var(--blue);color:#fff}
 ::-webkit-scrollbar{width:0}
 
-/* ===== CUSTOM CURSOR — DUAL THEME ===== */
+/* ===== CURSOR ===== */
 .cursor-dot{
   position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
   background:var(--ink);pointer-events:none;z-index:99999;
-  transform:translate(-50%,-50%);
-  mix-blend-mode:difference;
-  transition:width .2s,height .2s,background .2s;
+  transform:translate(-50%,-50%);mix-blend-mode:difference;
+  transition:width .2s,height .2s;
 }
 .cursor-ring{
   position:fixed;top:0;left:0;width:44px;height:44px;border-radius:50%;
@@ -65,44 +69,30 @@ body{
   border:1.5px solid var(--blue);
   transition:width .35s cubic-bezier(.16,1,.3,1),
              height .35s cubic-bezier(.16,1,.3,1),
-             border-color .35s,background .35s,opacity .35s;
-  box-shadow:0 0 24px var(--blue-glow),inset 0 0 12px rgba(30,107,255,.1);
+             border-color .35s,background .35s;
+  box-shadow:0 0 24px var(--blue-glow);
 }
 .cursor-ring.right{
   border-color:var(--red);
-  box-shadow:0 0 24px var(--red-glow),inset 0 0 12px rgba(255,45,85,.1);
+  box-shadow:0 0 24px var(--red-glow);
 }
 .cursor-ring.hover{
   width:80px;height:80px;
   background:rgba(30,107,255,.08);
   backdrop-filter:blur(2px);
 }
-.cursor-ring.right.hover{
-  background:rgba(255,45,85,.08);
-}
-.cursor-ring.click{
-  width:20px;height:20px;
-  background:var(--ink);
-  border-color:var(--ink);
-}
-/* Cursor trail */
-.cursor-trail{
-  position:fixed;top:0;left:0;width:100vw;height:100vh;
-  pointer-events:none;z-index:99997;
-  mix-blend-mode:screen;
-}
+.cursor-ring.right.hover{background:rgba(255,45,85,.08)}
+.cursor-ring.click{width:20px;height:20px;background:var(--ink);border-color:var(--ink)}
 @media(max-width:768px){
   body{cursor:auto}
-  .cursor-dot,.cursor-ring,.cursor-trail{display:none}
+  .cursor-dot,.cursor-ring{display:none}
 }
 
-/* ===== NOISE ===== */
+/* ===== NOISE & GRID ===== */
 .noise{
   position:fixed;inset:0;pointer-events:none;z-index:9996;opacity:.035;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-
-/* ===== BG GRID ===== */
 .bg-grid{
   position:fixed;inset:0;z-index:-2;pointer-events:none;
   background-image:
@@ -127,26 +117,18 @@ nav.scrolled{
   padding:.9rem 3rem;
   border-bottom-color:rgba(255,255,255,.05);
 }
-.logo-wrap{display:flex;align-items:center;gap:.75rem;cursor:none}
+.logo-wrap{display:flex;align-items:center;gap:.75rem;cursor:none;text-decoration:none}
 .logo-mark{
   width:38px;height:38px;position:relative;flex-shrink:0;
   filter:drop-shadow(0 0 12px rgba(30,107,255,.4));
   transition:filter .3s;
 }
-.logo-wrap:hover .logo-mark{
-  filter:drop-shadow(0 0 20px rgba(255,45,85,.5));
-  animation:logoShift 1.5s ease-in-out infinite;
-}
-@keyframes logoShift{
-  0%,100%{filter:drop-shadow(0 0 12px rgba(30,107,255,.4))}
-  50%{filter:drop-shadow(0 0 20px rgba(255,45,85,.5))}
-}
+.logo-wrap:hover .logo-mark{filter:drop-shadow(0 0 20px rgba(255,45,85,.5))}
 .logo-text{
   font-family:var(--font-d);font-size:1.35rem;font-weight:600;
   letter-spacing:-.02em;line-height:1;
-  display:flex;flex-direction:column;
+  display:flex;flex-direction:column;color:var(--ink);
 }
-.logo-text .top{color:var(--ink)}
 .logo-text .sub{
   font-family:var(--font-m);font-size:.55rem;font-weight:400;
   letter-spacing:.25em;color:var(--ink-2);margin-top:3px;text-transform:uppercase;
@@ -154,7 +136,7 @@ nav.scrolled{
 .nav-links{display:flex;gap:2.4rem;list-style:none;align-items:center}
 .nav-links a{
   color:var(--ink-2);text-decoration:none;font-size:.88rem;font-weight:500;
-  letter-spacing:.01em;transition:color .3s;cursor:none;position:relative;padding:.3rem 0;
+  transition:color .3s;cursor:none;position:relative;padding:.3rem 0;
 }
 .nav-links a::before{
   content:'';position:absolute;left:0;bottom:0;width:0;height:1px;
@@ -177,8 +159,6 @@ nav.scrolled{
   transform:translateY(-2px);
 }
 .nav-cta::before{display:none}
-
-/* Menu toggle */
 .menu-btn{display:none;flex-direction:column;gap:6px;cursor:none;z-index:1001;padding:8px}
 .menu-btn span{width:26px;height:2px;background:var(--ink);transition:all .3s;border-radius:2px}
 
@@ -188,12 +168,12 @@ nav.scrolled{
   display:flex;align-items:center;padding:8rem 3rem 4rem;
 }
 .hero-video{
-  position:absolute;inset:0;z-index:-1;
-  overflow:hidden;
+  position:absolute;inset:0;z-index:-1;overflow:hidden;
+  will-change:transform;
 }
 .hero-video video{
   width:100%;height:100%;object-fit:cover;
-  opacity:.18;
+  opacity:.15;
   filter:grayscale(1) contrast(1.2) brightness(.6);
 }
 .hero-video::after{
@@ -205,8 +185,7 @@ nav.scrolled{
 }
 .hero-inner{
   max-width:1400px;margin:0 auto;width:100%;
-  display:grid;grid-template-columns:1fr;gap:3rem;
-  position:relative;z-index:2;
+  position:relative;z-index:2;will-change:transform,opacity;
 }
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:.75rem;
@@ -244,24 +223,11 @@ nav.scrolled{
 .hero h1 .line:nth-child(4) .line-inner{animation-delay:.56s}
 @keyframes riseUp{to{transform:translateY(0)}}
 
-.grad-def{
-  background:var(--grad-def);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.grad-off{
-  background:var(--grad-off);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.outline-def{
-  -webkit-text-stroke:1.5px rgba(30,107,255,.6);
-  -webkit-text-fill-color:transparent;
-}
-.outline-off{
-  -webkit-text-stroke:1.5px rgba(255,45,85,.6);
-  -webkit-text-fill-color:transparent;
-}
+.grad-def{background:var(--grad-def);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.grad-off{background:var(--grad-off);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.outline-off{-webkit-text-stroke:1.5px rgba(255,45,85,.6);-webkit-text-fill-color:transparent}
+.outline-def{-webkit-text-stroke:1.5px rgba(30,107,255,.6);-webkit-text-fill-color:transparent}
+.serif{font-family:var(--font-s);font-style:italic;font-weight:400;letter-spacing:-.01em}
 
 .hero-bottom{
   display:grid;grid-template-columns:1fr 1fr;gap:4rem;
@@ -270,17 +236,16 @@ nav.scrolled{
 }
 .hero-desc{
   font-size:1.05rem;line-height:1.75;color:var(--ink-2);
-  max-width:520px;
+  max-width:520px;font-weight:300;
 }
 .hero-desc strong{color:var(--ink);font-weight:500}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
 
-/* Buttons */
 .btn{
   display:inline-flex;align-items:center;gap:.75rem;
   padding:1.05rem 2rem;border-radius:100px;
   font-family:var(--font-b);font-size:.9rem;font-weight:500;
-  letter-spacing:.01em;cursor:none;text-decoration:none;
+  cursor:none;text-decoration:none;
   transition:all .5s cubic-bezier(.16,1,.3,1);
   position:relative;overflow:hidden;
 }
@@ -288,47 +253,31 @@ nav.scrolled{
   background:var(--grad-def);color:#fff;
   box-shadow:0 10px 30px rgba(30,107,255,.25);
 }
-.btn-def:hover{
-  transform:translateY(-3px);
-  box-shadow:0 20px 50px rgba(30,107,255,.45);
-}
-.btn-def::before{
-  content:'';position:absolute;inset:0;
-  background:var(--grad-off);opacity:0;
-  transition:opacity .5s;
-}
+.btn-def:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(30,107,255,.45)}
+.btn-def::before{content:'';position:absolute;inset:0;background:var(--grad-off);opacity:0;transition:opacity .5s}
 .btn-def:hover::before{opacity:1}
 .btn-def span,.btn-def .arrow{position:relative;z-index:1}
 .btn-def .arrow{transition:transform .3s}
 .btn-def:hover .arrow{transform:translateX(4px)}
-
 .btn-ghost{
   background:rgba(255,255,255,.02);color:var(--ink);
   border:1px solid rgba(255,255,255,.1);
   backdrop-filter:blur(10px);
 }
-.btn-ghost:hover{
-  border-color:var(--red);
-  background:rgba(255,45,85,.05);
-  transform:translateY(-3px);
-  box-shadow:0 15px 40px rgba(255,45,85,.15);
-}
+.btn-ghost:hover{border-color:var(--red);background:rgba(255,45,85,.05);transform:translateY(-3px)}
 
-/* Hero side visual */
 .hero-side{
   position:absolute;right:3rem;top:50%;transform:translateY(-50%);
   display:flex;flex-direction:column;gap:1.5rem;
   font-family:var(--font-m);font-size:.7rem;
   color:var(--ink-2);letter-spacing:.15em;text-transform:uppercase;
-  writing-mode:vertical-rl;
   opacity:0;animation:fadeUp 1s 1.2s forwards;
 }
-.hero-side .row{display:flex;align-items:center;gap:1rem;writing-mode:horizontal-tb}
+.hero-side .row{display:flex;align-items:center;gap:1rem}
 .hero-side .dot-blue{width:5px;height:5px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue)}
 .hero-side .dot-red{width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
 .hero-side .line{width:40px;height:1px;background:linear-gradient(90deg,var(--blue),transparent)}
 
-/* Scroll indicator */
 .scroll-hint{
   position:absolute;bottom:2rem;left:3rem;
   display:flex;align-items:center;gap:1rem;
@@ -339,8 +288,7 @@ nav.scrolled{
 .scroll-hint .bar{width:60px;height:1px;background:rgba(255,255,255,.15);position:relative;overflow:hidden}
 .scroll-hint .bar::after{
   content:'';position:absolute;left:0;top:0;width:30%;height:100%;
-  background:var(--grad-dual);
-  animation:slide 2s infinite;
+  background:var(--grad-dual);animation:slide 2s infinite;
 }
 @keyframes slide{0%{transform:translateX(-100%)}100%{transform:translateX(400%)}}
 
@@ -362,10 +310,7 @@ nav.scrolled{
   font-family:var(--font-d);font-size:1.1rem;font-weight:500;
   color:var(--ink-2);letter-spacing:.02em;text-transform:uppercase;
 }
-.marquee-item .diamond{
-  width:8px;height:8px;background:var(--grad-dual);
-  transform:rotate(45deg);flex-shrink:0;
-}
+.marquee-item .diamond{width:8px;height:8px;background:var(--grad-dual);transform:rotate(45deg);flex-shrink:0}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ===== SECTIONS ===== */
@@ -378,9 +323,7 @@ section{padding:8rem 3rem;position:relative}
   letter-spacing:.22em;text-transform:uppercase;
   color:var(--ink-2);margin-bottom:1.5rem;
 }
-.label::before{
-  content:'';width:32px;height:1px;background:var(--grad-dual);
-}
+.label::before{content:'';width:32px;height:1px;background:var(--grad-dual)}
 .label .num{color:var(--blue)}
 .label .num-r{color:var(--red)}
 
@@ -391,57 +334,145 @@ section{padding:8rem 3rem;position:relative}
   margin-bottom:1.5rem;
 }
 .title em{
-  font-style:normal;font-weight:600;
+  font-style:italic;font-family:var(--font-s);font-weight:400;
   background:var(--grad-dual);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
+  letter-spacing:-.01em;
 }
 .desc{
-  font-size:1.05rem;line-height:1.75;color:var(--ink-2);
-  max-width:620px;
+  font-size:1.02rem;line-height:1.8;color:var(--ink-2);
+  max-width:620px;font-weight:300;
 }
+.desc strong{color:var(--ink);font-weight:500}
+
+/* ===== TEXT REVEAL (split words) ===== */
+.split-text .word-wrap{
+  display:inline-block;overflow:hidden;
+  padding:.05em 0;vertical-align:top;
+}
+.split-text .word{
+  display:inline-block;
+  transform:translateY(110%);
+  transition:transform 1s cubic-bezier(.16,1,.3,1);
+  will-change:transform;
+}
+.split-text.on .word{transform:translateY(0)}
+.split-text.on .word-wrap:nth-child(1) .word{transition-delay:.05s}
+.split-text.on .word-wrap:nth-child(2) .word{transition-delay:.1s}
+.split-text.on .word-wrap:nth-child(3) .word{transition-delay:.15s}
+.split-text.on .word-wrap:nth-child(4) .word{transition-delay:.2s}
+.split-text.on .word-wrap:nth-child(5) .word{transition-delay:.25s}
+.split-text.on .word-wrap:nth-child(6) .word{transition-delay:.3s}
+.split-text.on .word-wrap:nth-child(7) .word{transition-delay:.35s}
+.split-text.on .word-wrap:nth-child(8) .word{transition-delay:.4s}
+.split-text.on .word-wrap:nth-child(9) .word{transition-delay:.45s}
+.split-text.on .word-wrap:nth-child(10) .word{transition-delay:.5s}
+.split-text.on .word-wrap:nth-child(11) .word{transition-delay:.55s}
+.split-text.on .word-wrap:nth-child(12) .word{transition-delay:.6s}
+.split-text.on .word-wrap:nth-child(13) .word{transition-delay:.65s}
+.split-text.on .word-wrap:nth-child(14) .word{transition-delay:.7s}
+.split-text.on .word-wrap:nth-child(15) .word{transition-delay:.75s}
 
 /* ===== ABOUT ===== */
 .about{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
-.about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:5rem;align-items:center}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
 
-.about-img-stack{position:relative;aspect-ratio:1/1.1;min-height:520px}
-.about-img{
-  position:absolute;border-radius:20px;overflow:hidden;
+/* Grid-collage (reliable, no overlap issues) */
+.about-media{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  grid-template-rows:1fr 1fr;
+  grid-template-areas:
+    "big tall"
+    "big short";
+  gap:1rem;
+  height:620px;
+  position:relative;
+}
+.about-cell{
+  position:relative;border-radius:18px;overflow:hidden;
   border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 30px 80px rgba(0,0,0,.5);
-  transition:all .6s cubic-bezier(.16,1,.3,1);
+  transition:border-color .4s;
+  will-change:transform;
 }
-.about-img img{width:100%;height:100%;object-fit:cover;transition:all .8s;filter:grayscale(1) brightness(.7)}
-.about-img:hover img{filter:grayscale(0) brightness(1);transform:scale(1.05)}
-.about-img-1{width:65%;height:75%;top:0;left:0;z-index:2}
-.about-img-2{width:60%;height:55%;bottom:0;right:0;z-index:3;border-color:rgba(255,45,85,.2)}
-.about-img-3{
-  width:32%;height:32%;top:45%;left:55%;z-index:4;
-  border-color:rgba(30,107,255,.25);
-  box-shadow:0 20px 60px rgba(30,107,255,.25);
+.about-cell:hover{border-color:rgba(30,107,255,.3)}
+.about-cell:nth-child(even):hover{border-color:rgba(255,45,85,.3)}
+.about-cell img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) brightness(.65);
+  transition:transform 1.2s cubic-bezier(.16,1,.3,1),filter .6s;
 }
+.about-cell:hover img{filter:grayscale(0) brightness(.95);transform:scale(1.06)}
+.about-cell-1{grid-area:big}
+.about-cell-2{grid-area:short}
+.about-cell-3{grid-area:tall}
+/* Small badge */
+.about-badge{
+  position:absolute;bottom:1rem;left:1rem;
+  padding:.6rem 1rem;border-radius:100px;
+  background:rgba(5,6,10,.85);backdrop-filter:blur(20px);
+  border:1px solid rgba(30,107,255,.3);
+  font-family:var(--font-m);font-size:.65rem;
+  color:var(--blue);letter-spacing:.15em;text-transform:uppercase;
+  z-index:3;
+}
+
+.about-content .label{margin-bottom:1.5rem}
+.about-content .desc{margin-bottom:1.25rem}
 .about-stats{
   display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;
   padding-top:3rem;border-top:1px solid rgba(255,255,255,.06);
 }
 .stat{padding-left:1.25rem;border-left:2px solid transparent;position:relative}
-.stat::before{
-  content:'';position:absolute;left:-2px;top:0;bottom:0;width:2px;
-  background:var(--grad-def);
-}
+.stat::before{content:'';position:absolute;left:-2px;top:0;bottom:0;width:2px;background:var(--grad-def)}
 .stat:nth-child(even)::before{background:var(--grad-off)}
 .stat-num{
   font-family:var(--font-d);font-size:2.4rem;font-weight:600;
   line-height:1;margin-bottom:.5rem;letter-spacing:-.03em;
 }
-.stat:nth-child(odd) .stat-num{
+.stat:nth-child(odd) .stat-num{background:var(--grad-def);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat:nth-child(even) .stat-num{background:var(--grad-off);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-lbl{font-family:var(--font-m);font-size:.68rem;color:var(--ink-2);letter-spacing:.15em;text-transform:uppercase}
+
+/* ===== STATS BAR (big horizontal numbers) ===== */
+.stats-bar{
+  background:var(--bg);
+  border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  padding:6rem 3rem;position:relative;overflow:hidden;
+}
+.stats-bar::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:800px;height:100%;
+  background:radial-gradient(ellipse at center,rgba(30,107,255,.08),transparent 70%);
+  pointer-events:none;
+}
+.stats-bar-shell{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+  position:relative;z-index:1;
+}
+.stat-big{text-align:center;padding:0 1rem;position:relative}
+.stat-big:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent);
+}
+.stat-big .num{
+  font-family:var(--font-d);font-size:clamp(3rem,6vw,5.5rem);
+  font-weight:600;line-height:1;letter-spacing:-.04em;
+  margin-bottom:1rem;display:inline-block;
+}
+.stat-big:nth-child(odd) .num{
   background:var(--grad-def);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
-.stat:nth-child(even) .stat-num{
+.stat-big:nth-child(even) .num{
   background:var(--grad-off);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
-.stat-lbl{font-family:var(--font-m);font-size:.68rem;color:var(--ink-2);letter-spacing:.15em;text-transform:uppercase}
+.stat-big .lbl{
+  font-family:var(--font-m);font-size:.7rem;color:var(--ink-2);
+  letter-spacing:.2em;text-transform:uppercase;
+}
 
 /* ===== SERVICES ===== */
 .services{background:var(--bg)}
@@ -459,21 +490,28 @@ section{padding:8rem 3rem;position:relative}
   background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(30,107,255,.1),transparent 40%);
   opacity:0;transition:opacity .5s;pointer-events:none;
 }
-.svc.off::before{
-  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(255,45,85,.1),transparent 40%);
-}
+.svc.off::before{background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(255,45,85,.1),transparent 40%)}
 .svc:hover::before{opacity:1}
 .svc:hover{
   border-color:rgba(30,107,255,.3);
   transform:translateY(-6px);
   box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 60px rgba(30,107,255,.08);
 }
-.svc.off:hover{
-  border-color:rgba(255,45,85,.3);
-  box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 60px rgba(255,45,85,.08);
-}
+.svc.off:hover{border-color:rgba(255,45,85,.3);box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 60px rgba(255,45,85,.08)}
 
-.svc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.75rem}
+.svc-img{
+  width:100%;height:140px;border-radius:12px;overflow:hidden;
+  margin-bottom:1.5rem;position:relative;
+  border:1px solid rgba(255,255,255,.05);
+}
+.svc-img img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) brightness(.6);
+  transition:transform 1s,filter .6s;
+}
+.svc:hover .svc-img img{filter:grayscale(0) brightness(.9);transform:scale(1.08)}
+
+.svc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem}
 .svc-num{
   font-family:var(--font-m);font-size:.7rem;letter-spacing:.15em;
   color:var(--blue);padding:.35rem .7rem;
@@ -485,33 +523,53 @@ section{padding:8rem 3rem;position:relative}
   width:32px;height:32px;border-radius:50%;
   border:1px solid rgba(255,255,255,.1);
   display:flex;align-items:center;justify-content:center;
-  color:var(--ink-2);font-size:.85rem;
-  transition:all .4s;
+  color:var(--ink-2);font-size:.85rem;transition:all .4s;
 }
-.svc:hover .svc-arrow{
-  border-color:var(--blue);color:var(--blue);
-  background:rgba(30,107,255,.08);transform:rotate(-45deg);
-}
+.svc:hover .svc-arrow{border-color:var(--blue);color:var(--blue);background:rgba(30,107,255,.08);transform:rotate(-45deg)}
 .svc.off:hover .svc-arrow{border-color:var(--red);color:var(--red);background:rgba(255,45,85,.08)}
 
 .svc-icon{
-  width:56px;height:56px;border-radius:14px;
+  width:52px;height:52px;border-radius:14px;
   display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.5rem;position:relative;
+  margin-bottom:1.5rem;
   background:linear-gradient(135deg,rgba(30,107,255,.15),rgba(0,212,255,.05));
   border:1px solid rgba(30,107,255,.2);
   transition:all .5s cubic-bezier(.16,1,.3,1);
 }
-.svc.off .svc-icon{
-  background:linear-gradient(135deg,rgba(255,45,85,.15),rgba(255,107,61,.05));
-  border-color:rgba(255,45,85,.2);
-}
+.svc.off .svc-icon{background:linear-gradient(135deg,rgba(255,45,85,.15),rgba(255,107,61,.05));border-color:rgba(255,45,85,.2)}
 .svc:hover .svc-icon{transform:rotate(-6deg) scale(1.08)}
-.svc-icon svg{width:26px;height:26px;stroke-width:1.5;fill:none}
+.svc-icon svg{width:24px;height:24px;stroke-width:1.5;fill:none}
+.svc h3{font-family:var(--font-d);font-size:1.3rem;font-weight:500;margin-bottom:.85rem;letter-spacing:-.02em}
+.svc p{font-size:.9rem;line-height:1.7;color:var(--ink-2);font-weight:300}
+.svc-featured{grid-column:span 2}
 
-.svc h3{font-family:var(--font-d);font-size:1.35rem;font-weight:500;margin-bottom:.85rem;letter-spacing:-.02em}
-.svc p{font-size:.9rem;line-height:1.7;color:var(--ink-2)}
-.svc-featured{grid-column:span 2;background:linear-gradient(135deg,rgba(30,107,255,.05),rgba(255,45,85,.04))}
+/* ===== WHY US ===== */
+.why{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:4rem}
+.why-card{
+  padding:2rem 1.75rem;border-radius:16px;
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.06);
+  transition:all .5s cubic-bezier(.16,1,.3,1);cursor:none;position:relative;overflow:hidden;
+}
+.why-card::after{
+  content:'';position:absolute;top:0;left:0;width:100%;height:2px;
+  background:var(--grad-def);transform:scaleX(0);transform-origin:left;
+  transition:transform .6s cubic-bezier(.16,1,.3,1);
+}
+.why-card:nth-child(even)::after{background:var(--grad-off)}
+.why-card:hover::after{transform:scaleX(1)}
+.why-card:hover{border-color:rgba(30,107,255,.2);background:rgba(255,255,255,.03);transform:translateY(-4px)}
+.why-card:nth-child(even):hover{border-color:rgba(255,45,85,.2)}
+.why-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(30,107,255,.08);border:1px solid rgba(30,107,255,.2);
+  margin-bottom:1.5rem;font-size:1.4rem;
+}
+.why-card:nth-child(even) .why-icon{background:rgba(255,45,85,.08);border-color:rgba(255,45,85,.2)}
+.why-card h4{font-family:var(--font-d);font-size:1.15rem;font-weight:500;margin-bottom:.75rem}
+.why-card p{font-size:.88rem;line-height:1.7;color:var(--ink-2);font-weight:300}
 
 /* ===== GOVERNANCE ===== */
 .gov{background:var(--bg-3);position:relative;overflow:hidden}
@@ -539,17 +597,43 @@ section{padding:8rem 3rem;position:relative}
 .gov-badge{
   width:32px;height:32px;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-m);font-size:.65rem;
-  border:1px solid;
+  font-family:var(--font-m);font-size:.65rem;border:1px solid;
 }
 .gov-text{display:flex;flex-direction:column;gap:.15rem}
-.gov-name{font-size:1rem;font-weight:500}
+.gov-name{font-size:1rem;font-weight:500;font-family:var(--font-b)}
 .gov-sub{font-family:var(--font-m);font-size:.7rem;color:var(--ink-2);letter-spacing:.05em}
 
 .gov-vis{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
-.gov-shield{width:100%;height:100%;max-width:500px}
+.gov-shield{width:100%;height:100%;max-width:500px;will-change:transform}
 
-/* ===== IMAGE GALLERY ===== */
+/* ===== PROCESS ===== */
+.process{background:var(--bg)}
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+  margin-top:4rem;position:relative;
+}
+.process-grid::before{
+  content:'';position:absolute;top:38px;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(30,107,255,.4) 20%,rgba(255,45,85,.4) 80%,transparent);
+  z-index:0;
+}
+.step{position:relative;z-index:1;text-align:center;cursor:none}
+.step-num{
+  width:76px;height:76px;border-radius:50%;margin:0 auto 1.5rem;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);border:1.5px solid rgba(30,107,255,.35);
+  font-family:var(--font-d);font-size:1.5rem;font-weight:600;
+  color:var(--blue);position:relative;
+  transition:all .5s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 0 30px rgba(30,107,255,.15);
+}
+.step:nth-child(even) .step-num{border-color:rgba(255,45,85,.35);color:var(--red);box-shadow:0 0 30px rgba(255,45,85,.15)}
+.step:hover .step-num{transform:scale(1.08);background:var(--bg-2);box-shadow:0 0 50px rgba(30,107,255,.3)}
+.step:nth-child(even):hover .step-num{box-shadow:0 0 50px rgba(255,45,85,.3)}
+.step h4{font-family:var(--font-d);font-size:1.15rem;font-weight:500;margin-bottom:.6rem}
+.step p{font-size:.88rem;color:var(--ink-2);line-height:1.65;font-weight:300;max-width:240px;margin:0 auto}
+
+/* ===== GALLERY ===== */
 .gallery{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.04)}
 .gal-grid{
   display:grid;grid-template-columns:repeat(4,1fr);
@@ -559,12 +643,14 @@ section{padding:8rem 3rem;position:relative}
   position:relative;border-radius:16px;overflow:hidden;
   border:1px solid rgba(255,255,255,.06);cursor:none;
   transition:all .6s cubic-bezier(.16,1,.3,1);
+  will-change:transform;
 }
 .gal-item:nth-child(1){grid-column:span 2;grid-row:span 2}
-.gal-item:nth-child(5){grid-column:span 2}
-.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 1s,filter 1s;filter:grayscale(.8) brightness(.6)}
-.gal-item:hover{border-color:rgba(30,107,255,.3)}
-.gal-item:nth-child(even):hover{border-color:rgba(255,45,85,.3)}
+.gal-item:nth-child(6){grid-column:span 2}
+.gal-item:nth-child(8){grid-column:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s,filter .8s;filter:grayscale(.85) brightness(.6)}
+.gal-item:hover{border-color:rgba(30,107,255,.35)}
+.gal-item:nth-child(even):hover{border-color:rgba(255,45,85,.35)}
 .gal-item:hover img{transform:scale(1.08);filter:grayscale(0) brightness(1)}
 .gal-overlay{
   position:absolute;inset:0;
@@ -579,12 +665,80 @@ section{padding:8rem 3rem;position:relative}
 .gal-item:nth-child(even) .gal-tag{color:var(--red)}
 .gal-cap{font-family:var(--font-d);font-size:1.05rem;font-weight:500;color:var(--ink)}
 
+/* ===== SHOWREEL ===== */
+.showreel{
+  padding:0;position:relative;overflow:hidden;
+  background:var(--bg);
+}
+.showreel-inner{
+  position:relative;height:80vh;min-height:600px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.showreel video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;opacity:.35;
+  filter:grayscale(.7) contrast(1.1) brightness(.7);
+  will-change:transform;
+}
+.showreel-inner::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 50%,rgba(30,107,255,.35),transparent 60%),
+    radial-gradient(circle at 70% 50%,rgba(255,45,85,.3),transparent 60%),
+    linear-gradient(180deg,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);
+}
+.showreel-content{
+  position:relative;z-index:2;text-align:center;
+  padding:0 2rem;max-width:1000px;
+}
+.showreel-content .label{color:var(--ink);justify-content:center}
+.showreel-content .label::before{background:var(--grad-def)}
+.showreel-content h2{
+  font-family:var(--font-d);
+  font-size:clamp(2.4rem,6vw,5rem);
+  font-weight:500;line-height:1.02;letter-spacing:-.04em;
+  margin-bottom:2rem;
+}
+.showreel-content h2 em{
+  font-style:italic;font-family:var(--font-s);font-weight:400;
+  background:var(--grad-dual);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.showreel-content p{
+  font-size:1.05rem;color:var(--ink-2);max-width:560px;
+  margin:0 auto 2.5rem;line-height:1.75;font-weight:300;
+}
+.play-btn{
+  width:100px;height:100px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.05);backdrop-filter:blur(20px);
+  border:1.5px solid rgba(255,255,255,.2);
+  color:var(--ink);font-size:1.8rem;
+  cursor:none;transition:all .5s cubic-bezier(.16,1,.3,1);
+  position:relative;
+}
+.play-btn::before{
+  content:'';position:absolute;inset:-8px;border-radius:50%;
+  border:1px solid rgba(30,107,255,.4);
+  animation:pulseRing 2.5s infinite;
+}
+@keyframes pulseRing{
+  0%{transform:scale(1);opacity:1}
+  100%{transform:scale(1.4);opacity:0}
+}
+.play-btn:hover{
+  background:var(--grad-dual);border-color:transparent;
+  transform:scale(1.05);
+  box-shadow:0 0 60px rgba(30,107,255,.5);
+}
+
 /* ===== REVIEWS ===== */
 .reviews{background:var(--bg);overflow:hidden}
 .rev-track{display:flex;gap:1.5rem;margin-top:4rem;width:max-content;animation:revScroll 60s linear infinite}
 .rev-track:hover{animation-play-state:paused}
 @keyframes revScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
 .rev{
   width:420px;flex-shrink:0;
   background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));
@@ -594,13 +748,13 @@ section{padding:8rem 3rem;position:relative}
 .rev:hover{border-color:rgba(30,107,255,.25);transform:translateY(-4px)}
 .rev:nth-child(even):hover{border-color:rgba(255,45,85,.25)}
 .rev-q{
-  font-family:var(--font-d);font-size:3.5rem;line-height:.8;
+  font-family:var(--font-s);font-size:3.5rem;line-height:.8;
   background:var(--grad-dual);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;margin-bottom:.5rem;
 }
 .rev-stars{color:#ffb800;font-size:.85rem;letter-spacing:.15em;margin-bottom:1rem}
-.rev-text{font-size:.95rem;line-height:1.75;color:var(--ink-2);margin-bottom:1.75rem}
+.rev-text{font-size:.95rem;line-height:1.75;color:var(--ink-2);margin-bottom:1.75rem;font-weight:300}
 .rev-author{display:flex;align-items:center;gap:.85rem}
 .rev-avatar{
   width:42px;height:42px;border-radius:50%;
@@ -633,19 +787,19 @@ section{padding:8rem 3rem;position:relative}
   margin-bottom:2rem;position:relative;
 }
 .cta h2 em{
-  font-style:normal;font-weight:600;
+  font-style:italic;font-family:var(--font-s);font-weight:400;
   background:var(--grad-dual);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-.cta p{font-size:1.05rem;color:var(--ink-2);max-width:520px;margin:0 auto 3rem;line-height:1.7;position:relative}
+.cta p{font-size:1.05rem;color:var(--ink-2);max-width:520px;margin:0 auto 3rem;line-height:1.7;position:relative;font-weight:300}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
 
 /* ===== FOOTER ===== */
 footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding:6rem 3rem 2.5rem}
 .ft-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:4rem;margin-bottom:4rem}
 .ft-brand .logo-wrap{margin-bottom:1.5rem}
-.ft-brand p{font-size:.9rem;color:var(--ink-2);line-height:1.75;margin-bottom:1.5rem;max-width:340px}
+.ft-brand p{font-size:.9rem;color:var(--ink-2);line-height:1.75;margin-bottom:1.5rem;max-width:340px;font-weight:300}
 .ft-addr{font-size:.82rem;color:var(--ink-2);line-height:1.9;font-style:normal;font-family:var(--font-m)}
 .ft-col h4{
   font-family:var(--font-m);font-size:.7rem;font-weight:500;
@@ -656,7 +810,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 .ft-col ul li{margin-bottom:.85rem}
 .ft-col ul li a{
   color:var(--ink-2);text-decoration:none;font-size:.88rem;
-  transition:all .3s;cursor:none;display:inline-block;
+  transition:all .3s;cursor:none;display:inline-block;font-weight:300;
 }
 .ft-col ul li a:hover{color:var(--blue);transform:translateX(4px)}
 .ft-col ul li:nth-child(even) a:hover{color:var(--red)}
@@ -697,12 +851,17 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .svc-featured{grid-column:span 2}
   .about-grid,.gov-grid{grid-template-columns:1fr;gap:4rem}
+  .why-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
+  .process-grid::before{display:none}
   .gal-grid{grid-template-columns:repeat(2,1fr)}
   .gal-item:nth-child(1){grid-column:span 2;grid-row:span 1}
-  .gal-item:nth-child(5){grid-column:span 1}
+  .gal-item:nth-child(6),.gal-item:nth-child(8){grid-column:span 1}
   .ft-grid{grid-template-columns:1fr 1fr;gap:3rem}
   .hero-side{display:none}
   .hero-bottom{grid-template-columns:1fr;gap:2rem}
+  .stats-bar-shell{grid-template-columns:repeat(2,1fr);gap:3rem}
+  .stat-big:nth-child(2)::after{display:none}
+  .about-media{height:500px}
 }
 @media(max-width:768px){
   body{cursor:auto}
@@ -714,13 +873,24 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   .svc-grid{grid-template-columns:1fr}
   .svc-featured{grid-column:span 1}
   .svc-header{flex-direction:column;align-items:flex-start}
+  .why-grid,.process-grid{grid-template-columns:1fr}
   .gal-grid{grid-template-columns:1fr;grid-auto-rows:180px}
-  .gal-item:nth-child(1),.gal-item:nth-child(5){grid-column:span 1;grid-row:span 1}
+  .gal-item:nth-child(1),.gal-item:nth-child(6),.gal-item:nth-child(8){grid-column:span 1;grid-row:span 1}
   .ft-grid{grid-template-columns:1fr;gap:2rem}
   .ft-bot{flex-direction:column;text-align:center}
   .rev{width:300px;padding:1.5rem}
   .scroll-hint{display:none}
-  .about-img-stack{min-height:400px}
+  .about-media{
+    grid-template-columns:1fr;grid-template-rows:auto;
+    grid-template-areas:"big" "tall" "short";
+    height:auto;
+  }
+  .about-cell{aspect-ratio:4/3}
+  .about-cell-1{aspect-ratio:4/5}
+  .stats-bar-shell{grid-template-columns:1fr;gap:2.5rem}
+  .stat-big:not(:last-child)::after{display:none}
+  .stats-bar{padding:4rem 1.5rem}
+  .showreel-inner{height:auto;min-height:500px;padding:6rem 1.5rem}
 }
 </style>
 </head>
@@ -741,33 +911,21 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
     <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="lg-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1e6bff"/>
-          <stop offset="100%" stop-color="#00d4ff"/>
+          <stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#00d4ff"/>
         </linearGradient>
         <linearGradient id="lg-red" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#ff2d55"/>
-          <stop offset="100%" stop-color="#ff6b3d"/>
+          <stop offset="0%" stop-color="#ff2d55"/><stop offset="100%" stop-color="#ff6b3d"/>
         </linearGradient>
       </defs>
-      <!-- Left half (defensive - blue) -->
-      <path d="M50 8 L18 22 L18 52 C18 72 32 86 50 94 L50 8 Z"
-            fill="url(#lg-blue)" opacity="0.95"/>
-      <!-- Right half (offensive - red) -->
-      <path d="M50 8 L82 22 L82 52 C82 72 68 86 50 94 L50 8 Z"
-            fill="url(#lg-red)" opacity="0.95"/>
-      <!-- Center C monogram -->
-      <path d="M62 38 C58 34 52 33 47 36 C41 40 40 48 43 54 C46 60 53 62 58 59 C60 58 61 57 62 55"
-            stroke="#05060a" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.9"/>
-      <!-- Divider -->
+      <path d="M50 8 L18 22 L18 52 C18 72 32 86 50 94 L50 8 Z" fill="url(#lg-blue)" opacity="0.95"/>
+      <path d="M50 8 L82 22 L82 52 C82 72 68 86 50 94 L50 8 Z" fill="url(#lg-red)" opacity="0.95"/>
+      <path d="M62 38 C58 34 52 33 47 36 C41 40 40 48 43 54 C46 60 53 62 58 59 C60 58 61 57 62 55" stroke="#05060a" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.9"/>
       <line x1="50" y1="8" x2="50" y2="94" stroke="#05060a" stroke-width="1.5" opacity="0.6"/>
-      <!-- Circuit dots -->
       <circle cx="30" cy="35" r="2" fill="#05060a" opacity="0.7"/>
       <circle cx="70" cy="65" r="2" fill="#05060a" opacity="0.7"/>
-      <circle cx="35" cy="70" r="1.5" fill="#05060a" opacity="0.5"/>
-      <circle cx="68" cy="30" r="1.5" fill="#05060a" opacity="0.5"/>
     </svg>
     <span class="logo-text">
-      <span class="top">Crefo</span>
+      <span>Crefo</span>
       <span class="sub">Technologies</span>
     </span>
   </a>
@@ -784,7 +942,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-video">
+  <div class="hero-video" data-parallax="0.4">
     <video autoplay muted loop playsinline
       poster="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&q=80">
       <source src="https://cdn.pixabay.com/video/2023/09/22/180912-866937308_large.mp4" type="video/mp4">
@@ -855,26 +1013,28 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 <section class="about" id="about">
   <div class="shell">
     <div class="about-grid">
-      <div class="about-img-stack rv">
-        <div class="about-img about-img-1">
-          <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=800&q=80" alt="Circuit board close-up">
+      <!-- Clean grid collage (no overlap issues) -->
+      <div class="about-media rv">
+        <div class="about-cell about-cell-1" data-parallax="0.08">
+          <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=1000&q=80" alt="Circuit board macro">
+          <div class="about-badge">Defense · Precision</div>
         </div>
-        <div class="about-img about-img-2">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Server room">
-        </div>
-        <div class="about-img about-img-3">
+        <div class="about-cell about-cell-2" data-parallax="0.15">
           <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80" alt="Cyber security">
+        </div>
+        <div class="about-cell about-cell-3" data-parallax="0.12">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80" alt="Server room">
         </div>
       </div>
 
-      <div>
+      <div class="about-content">
         <div class="label rv">Who We Are <span class="num">/</span> <span class="num-r">01</span></div>
-        <h2 class="title rv">Engineering digital resilience for <em>modern enterprises.</em></h2>
+        <h2 class="title split-text rv">Engineering digital resilience for modern enterprises.</h2>
         <p class="desc rv" style="margin-bottom:1.25rem">
-          Founded in Coimbatore in 2013, Crefo Technologies began as a hands-on IT service house and grew into a full-spectrum technology partner. Today we operate at the intersection of <strong style="color:var(--blue);font-weight:500">defensive infrastructure</strong> and <strong style="color:var(--red);font-weight:500">offensive compliance strategy</strong>.
+          Founded in Coimbatore in 2013, Crefo Technologies began as a hands-on IT service house and grew into a full-spectrum technology partner. Today we operate at the intersection of <strong style="color:var(--blue)">defensive infrastructure</strong> and <strong style="color:var(--red)">offensive compliance strategy</strong>.
         </p>
         <p class="desc rv" style="margin-bottom:1.25rem">
-          From rapid laptop repair to ISO 27001 certification readiness — one partner, end to end.
+          From rapid laptop repair to enterprise-grade ISO 27001 certification readiness — one partner, end to end. We don't just fix devices. We secure entire organizations.
         </p>
 
         <div class="about-stats stg rv">
@@ -900,13 +1060,35 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   </div>
 </section>
 
+<!-- ===== STATS BAR (Big numbers) ===== -->
+<section class="stats-bar">
+  <div class="stats-bar-shell">
+    <div class="stat-big rv">
+      <div class="num" data-count="5000">0</div>
+      <div class="lbl">Devices Serviced</div>
+    </div>
+    <div class="stat-big rv">
+      <div class="num" data-count="120">0</div>
+      <div class="lbl">Enterprise Clients</div>
+    </div>
+    <div class="stat-big rv">
+      <div class="num" data-count="50">0</div>
+      <div class="lbl">ISO Certifications</div>
+    </div>
+    <div class="stat-big rv">
+      <div class="num" data-count="24">0</div>
+      <div class="lbl">Hour Response</div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== SERVICES ===== -->
 <section class="services" id="services">
   <div class="shell">
     <div class="svc-header">
       <div class="rv">
         <div class="label">Our Services <span class="num">/</span> <span class="num-r">02</span></div>
-        <h2 class="title">Intangible offerings that <em>fulfill real needs.</em></h2>
+        <h2 class="title split-text rv">Intangible offerings that fulfill real needs.</h2>
       </div>
       <p class="desc rv" style="max-width:420px">
         Two sides of the same coin — defensive hardware care and offensive governance strategy. Every service engineered for uptime.
@@ -920,11 +1102,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
           <span class="svc-num">01 / DEFENSE</span>
           <div class="svc-arrow">↗</div>
         </div>
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24" stroke="#1e6bff">
-            <rect x="2" y="4" width="20" height="14" rx="2"/>
-            <path d="M2 18h20M8 22h8"/>
-          </svg>
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=80" alt="Laptop repair">
         </div>
         <h3>Laptop Service Center</h3>
         <p>Fast and reliable laptop repairs and maintenance services to keep your device running efficiently. All brands — Dell, HP, Lenovo, MacBook, Asus. Screen replacement, motherboard repair, data recovery, thermal upgrades, and same-day turnaround on select issues.</p>
@@ -936,10 +1115,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
           <span class="svc-num">02 / DEFENSE</span>
           <div class="svc-arrow">↗</div>
         </div>
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24" stroke="#1e6bff">
-            <path d="M6 9V3h12v6M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v7H6z"/>
-          </svg>
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=800&q=80" alt="Printer maintenance">
         </div>
         <h3>Printer Maintenance</h3>
         <p>Efficient printer maintenance for optimal performance and reliability. On-site and remote support across all major brands.</p>
@@ -951,11 +1128,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
           <span class="svc-num">03 / OFFENSE</span>
           <div class="svc-arrow">↗</div>
         </div>
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24" stroke="#ff2d55">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/>
-          </svg>
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80" alt="Networking">
         </div>
         <h3>Networking Solutions</h3>
         <p>Professional networking for seamless connectivity. Structured cabling, firewalls, switches, routers, and Wi-Fi optimization.</p>
@@ -967,11 +1141,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
           <span class="svc-num">04 / DEFENSE</span>
           <div class="svc-arrow">↗</div>
         </div>
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24" stroke="#1e6bff">
-            <rect x="3" y="4" width="18" height="12" rx="2"/>
-            <path d="M8 20h8M12 16v4"/>
-          </svg>
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=800&q=80" alt="Desktop service">
         </div>
         <h3>Desktop Service</h3>
         <p>Comprehensive desktop service — repairs, upgrades, custom builds, and proactive maintenance to extend hardware lifespan.</p>
@@ -983,11 +1154,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
           <span class="svc-num">05 / OFFENSE</span>
           <div class="svc-arrow">↗</div>
         </div>
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24" stroke="#ff2d55">
-            <path d="M4 6h16v12H4zM2 20h20"/>
-            <path d="M12 10v4M10 12h4"/>
-          </svg>
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80" alt="Laptop service">
         </div>
         <h3>Laptop Service</h3>
         <p>Expert laptop service for repairs, upgrades, and maintenance. Battery replacement, keyboard repair, thermal paste reapplication.</p>
@@ -999,13 +1167,43 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
           <span class="svc-num">06 / DEFENSE</span>
           <div class="svc-arrow">↗</div>
         </div>
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24" stroke="#1e6bff">
-            <path d="M9 12l2 2 4-4M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/>
-          </svg>
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80" alt="AMC services">
         </div>
         <h3>AMC Services</h3>
         <p>Comprehensive Annual Maintenance Contracts — proactive equipment maintenance with minimal downtime and priority response.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="why">
+  <div class="shell">
+    <div class="label rv">Why Crefo <span class="num">/</span> <span class="num-r">03</span></div>
+    <h2 class="title split-text rv">Four reasons enterprises choose us.</h2>
+    <p class="desc rv" style="margin-top:1rem">We're not just a service provider — we're an extension of your IT team.</p>
+
+    <div class="why-grid stg rv">
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h4>Rapid Response</h4>
+        <p>Same-day diagnostics and 24-hour resolution targets for critical hardware issues. Emergency support available on request.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h4>Certified Expertise</h4>
+        <p>ISO-certified processes, trained engineers, and internationally recognized compliance frameworks across every engagement.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <h4>Transparent Pricing</h4>
+        <p>No hidden charges. No jargon. Clear quotes upfront, honest reporting, and detailed documentation for every service.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">♾️</div>
+        <h4>End-to-End Coverage</h4>
+        <p>From one laptop to an entire enterprise — hardware, network, cloud, and governance — all under one partner.</p>
       </div>
     </div>
   </div>
@@ -1016,8 +1214,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   <div class="shell">
     <div class="gov-grid">
       <div>
-        <div class="label rv">Governance <span class="num-r">/ 03</span></div>
-        <h2 class="title rv">Certifications that <em>build trust.</em></h2>
+        <div class="label rv">Governance <span class="num-r">/ 04</span></div>
+        <h2 class="title split-text rv">Certifications that build trust.</h2>
         <p class="desc rv">
           We guide organizations through the full certification lifecycle — gap analysis, documentation, internal audits, and final certification. Globally recognized frameworks, delivered with precision.
         </p>
@@ -1069,7 +1267,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
       </div>
 
       <div class="gov-vis rv">
-        <svg class="gov-shield" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <svg class="gov-shield" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" data-parallax="0.1">
           <defs>
             <linearGradient id="gs-blue" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#1e6bff" stop-opacity=".9"/>
@@ -1088,34 +1286,18 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
               <stop offset="100%" stop-color="#ff2d55" stop-opacity="0"/>
             </radialGradient>
           </defs>
-
-          <!-- Glow halos -->
           <circle cx="140" cy="200" r="160" fill="url(#gs-glow)"/>
           <circle cx="260" cy="200" r="160" fill="url(#gs-glow-r)"/>
-
-          <!-- Orbiting rings -->
           <ellipse cx="200" cy="200" rx="170" ry="170" fill="none" stroke="rgba(30,107,255,.15)" stroke-width="1" stroke-dasharray="4 8">
             <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="30s" repeatCount="indefinite"/>
           </ellipse>
           <ellipse cx="200" cy="200" rx="135" ry="135" fill="none" stroke="rgba(255,45,85,.15)" stroke-width="1" stroke-dasharray="4 8">
             <animateTransform attributeName="transform" type="rotate" from="360 200 200" to="0 200 200" dur="22s" repeatCount="indefinite"/>
           </ellipse>
-
-          <!-- Shield left half (defensive - blue) -->
-          <path d="M200 50 L110 90 L110 200 C110 270 155 320 200 350 L200 50 Z"
-                fill="url(#gs-blue)" opacity=".95"/>
-          <!-- Shield right half (offensive - red) -->
-          <path d="M200 50 L290 90 L290 200 C290 270 245 320 200 350 L200 50 Z"
-                fill="url(#gs-red)" opacity=".95"/>
-
-          <!-- Center C -->
-          <path d="M240 150 C225 135 195 130 175 145 C150 165 150 235 175 255 C195 270 225 265 240 250"
-                stroke="#05060a" stroke-width="14" stroke-linecap="round" fill="none" opacity=".95"/>
-
-          <!-- Center divider -->
+          <path d="M200 50 L110 90 L110 200 C110 270 155 320 200 350 L200 50 Z" fill="url(#gs-blue)" opacity=".95"/>
+          <path d="M200 50 L290 90 L290 200 C290 270 245 320 200 350 L200 50 Z" fill="url(#gs-red)" opacity=".95"/>
+          <path d="M240 150 C225 135 195 130 175 145 C150 165 150 235 175 255 C195 270 225 265 240 250" stroke="#05060a" stroke-width="14" stroke-linecap="round" fill="none" opacity=".95"/>
           <line x1="200" y1="50" x2="200" y2="350" stroke="#05060a" stroke-width="3" opacity=".7"/>
-
-          <!-- Circuit nodes -->
           <circle cx="140" cy="140" r="4" fill="#05060a" opacity=".8"/>
           <circle cx="140" cy="260" r="4" fill="#05060a" opacity=".8"/>
           <circle cx="260" cy="140" r="4" fill="#05060a" opacity=".8"/>
@@ -1124,10 +1306,39 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
           <line x1="140" y1="260" x2="175" y2="225" stroke="#05060a" stroke-width="1.5" opacity=".5"/>
           <line x1="260" y1="140" x2="225" y2="175" stroke="#05060a" stroke-width="1.5" opacity=".5"/>
           <line x1="260" y1="260" x2="225" y2="225" stroke="#05060a" stroke-width="1.5" opacity=".5"/>
-
-          <!-- Top label -->
           <text x="200" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#8a90a8" letter-spacing="4">SECURED · CERTIFIED · TRUSTED</text>
         </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process">
+  <div class="shell">
+    <div class="label rv">Our Process <span class="num">/</span> <span class="num-r">05</span></div>
+    <h2 class="title split-text rv">How we deliver excellence, every time.</h2>
+
+    <div class="process-grid stg rv">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Discovery</h4>
+        <p>We listen first. Understand your infrastructure, challenges, and goals before proposing anything.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Assessment</h4>
+        <p>Detailed gap analysis — from hardware health to compliance readiness — with clear findings.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Execution</h4>
+        <p>Certified engineers execute — repairs, deployments, or documentation — with minimal disruption.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Continuity</h4>
+        <p>Ongoing support, monitoring, and AMC coverage. We don't disappear after delivery.</p>
       </div>
     </div>
   </div>
@@ -1136,52 +1347,84 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 <!-- ===== GALLERY ===== -->
 <section class="gallery" id="gallery">
   <div class="shell">
-    <div class="label rv">Inside Crefo <span class="num">/</span> <span class="num-r">04</span></div>
-    <h2 class="title rv">Where defense meets <em>delivery.</em></h2>
+    <div class="label rv">Inside Crefo <span class="num">/</span> <span class="num-r">06</span></div>
+    <h2 class="title split-text rv">Where defense meets delivery.</h2>
     <p class="desc rv" style="margin-top:1rem">Real workshops. Real infrastructure. Real results.</p>
 
     <div class="gal-grid stg rv">
-      <div class="gal-item">
+      <div class="gal-item" data-parallax="0.06">
         <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80" alt="Circuit board macro">
         <div class="gal-overlay">
           <span class="gal-tag">Defense / Hardware</span>
           <span class="gal-cap">Precision motherboard repair</span>
         </div>
       </div>
-      <div class="gal-item">
+      <div class="gal-item" data-parallax="0.12">
         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Server racks">
         <div class="gal-overlay">
           <span class="gal-tag">Defense / Infra</span>
           <span class="gal-cap">Enterprise server room</span>
         </div>
       </div>
-      <div class="gal-item">
+      <div class="gal-item" data-parallax="0.08">
         <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80" alt="Cyber security">
         <div class="gal-overlay">
           <span class="gal-tag">Offense / Cyber</span>
           <span class="gal-cap">Threat intelligence desk</span>
         </div>
       </div>
-      <div class="gal-item">
+      <div class="gal-item" data-parallax="0.15">
         <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80" alt="Developer workspace">
         <div class="gal-overlay">
           <span class="gal-tag">Offense / Dev</span>
           <span class="gal-cap">Compliance engineering</span>
         </div>
       </div>
-      <div class="gal-item">
+      <div class="gal-item" data-parallax="0.05">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80" alt="Data matrix">
+        <div class="gal-overlay">
+          <span class="gal-tag">Offense / Data</span>
+          <span class="gal-cap">ISO 27001 audit trail</span>
+        </div>
+      </div>
+      <div class="gal-item" data-parallax="0.1">
         <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=1200&q=80" alt="Team collaboration">
         <div class="gal-overlay">
           <span class="gal-tag">Defense / Team</span>
           <span class="gal-cap">24/7 support operations</span>
         </div>
       </div>
-      <div class="gal-item">
-        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80" alt="Data matrix">
+      <div class="gal-item" data-parallax="0.14">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="Cyber lock">
         <div class="gal-overlay">
-          <span class="gal-tag">Offense / Data</span>
-          <span class="gal-cap">ISO 27001 audit trail</span>
+          <span class="gal-tag">Offense / Security</span>
+          <span class="gal-cap">Encryption layer</span>
         </div>
+      </div>
+      <div class="gal-item" data-parallax="0.07">
+        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&q=80" alt="Workstation setup">
+        <div class="gal-overlay">
+          <span class="gal-tag">Defense / Setup</span>
+          <span class="gal-cap">Custom enterprise builds</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOWREEL ===== -->
+<section class="showreel">
+  <div class="showreel-inner">
+    <video autoplay muted loop playsinline data-parallax="0.25"
+      poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80">
+      <source src="https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" type="video/mp4">
+    </video>
+    <div class="showreel-content">
+      <div class="label rv">Showreel <span class="num-r">/ 07</span></div>
+      <h2 class="rv">Watch how we <em>redefine IT service.</em></h2>
+      <p class="rv">From the workshop floor to the boardroom — see the Crefo approach in motion.</p>
+      <div class="rv" style="margin-top:1rem">
+        <a href="#contact" class="play-btn">▶</a>
       </div>
     </div>
   </div>
@@ -1190,8 +1433,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 <!-- ===== REVIEWS ===== -->
 <section class="reviews" id="reviews">
   <div class="shell">
-    <div class="label rv">Client Stories <span class="num">/</span> <span class="num-r">05</span></div>
-    <h2 class="title rv">Trusted by businesses <em>across Coimbatore.</em></h2>
+    <div class="label rv">Client Stories <span class="num">/</span> <span class="num-r">08</span></div>
+    <h2 class="title split-text rv">Trusted by businesses across Coimbatore.</h2>
   </div>
   <div class="rev-track" id="revTrack"></div>
 </section>
@@ -1219,12 +1462,10 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
         <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="flg-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1e6bff"/>
-              <stop offset="100%" stop-color="#00d4ff"/>
+              <stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#00d4ff"/>
             </linearGradient>
             <linearGradient id="flg-red" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#ff2d55"/>
-              <stop offset="100%" stop-color="#ff6b3d"/>
+              <stop offset="0%" stop-color="#ff2d55"/><stop offset="100%" stop-color="#ff6b3d"/>
             </linearGradient>
           </defs>
           <path d="M50 8 L18 22 L18 52 C18 72 32 86 50 94 L50 8 Z" fill="url(#flg-blue)"/>
@@ -1233,7 +1474,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
           <line x1="50" y1="8" x2="50" y2="94" stroke="#05060a" stroke-width="1.5" opacity=".6"/>
         </svg>
         <span class="logo-text">
-          <span class="top">Crefo</span>
+          <span>Crefo</span>
           <span class="sub">Technologies</span>
         </span>
       </a>
@@ -1290,45 +1531,32 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 </footer>
 
 <script>
-/* ===== LENIS SMOOTH SCROLL ===== */
+/* ===== LENIS ===== */
 const lenis = new Lenis({
   duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smooth: true,
-  smoothTouch: false,
+  easing: (t)=>Math.min(1,1.001-Math.pow(2,-10*t)),
+  smooth:true,smoothTouch:false,
 });
 function raf(t){lenis.raf(t);requestAnimationFrame(raf)}
 requestAnimationFrame(raf);
 
-/* ===== CUSTOM CURSOR — DUAL THEME ===== */
-const dot = document.querySelector('.cursor-dot');
-const ring = document.querySelector('.cursor-ring');
-let mx=window.innerWidth/2,my=window.innerHeight/2;
-let rx=mx,ry=my;
-
+/* ===== CURSOR ===== */
+const dot=document.querySelector('.cursor-dot');
+const ring=document.querySelector('.cursor-ring');
+let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
 document.addEventListener('mousemove',e=>{
   mx=e.clientX;my=e.clientY;
-  dot.style.left=mx+'px';
-  dot.style.top=my+'px';
-  // Switch ring theme based on screen half
-  if(mx > window.innerWidth/2){
-    ring.classList.add('right');
-  } else {
-    ring.classList.remove('right');
-  }
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+  if(mx>innerWidth/2) ring.classList.add('right');
+  else ring.classList.remove('right');
 });
-
 function animateRing(){
-  rx += (mx-rx)*0.15;
-  ry += (my-ry)*0.15;
-  ring.style.left=rx+'px';
-  ring.style.top=ry+'px';
+  rx+=(mx-rx)*.15;ry+=(my-ry)*.15;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
   requestAnimationFrame(animateRing);
 }
 animateRing();
-
-/* Hover states */
-const hoverEls = document.querySelectorAll('a, button, .svc, .gal-item, .rev, .gov-list li, .menu-btn, .btn');
+const hoverEls=document.querySelectorAll('a,button,.svc,.gal-item,.rev,.gov-list li,.menu-btn,.btn,.why-card,.step,.play-btn,.about-cell');
 hoverEls.forEach(el=>{
   el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
   el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
@@ -1336,27 +1564,43 @@ hoverEls.forEach(el=>{
 document.addEventListener('mousedown',()=>ring.classList.add('click'));
 document.addEventListener('mouseup',()=>ring.classList.remove('click'));
 
-/* ===== NAV SCROLL ===== */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled', window.scrollY>80);
-});
+/* ===== NAV ===== */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80));
+
+/* ===== TEXT SPLIT (word-by-word) ===== */
+function splitText(el){
+  const text = el.textContent.trim();
+  // Preserve inline HTML like <em> by walking child nodes
+  const html = el.innerHTML.trim();
+  // Simple approach: split the innerHTML into words while preserving tags
+  const tokens = html.split(/(\s+)/);
+  let out = '';
+  tokens.forEach(tok=>{
+    if(tok.trim()==='') { out += tok; return; }
+    // skip tokens that are just tags
+    if(tok.startsWith('<') && tok.endsWith('>')) { out += tok; return; }
+    out += `<span class="word-wrap"><span class="word">${tok}</span></span>`;
+  });
+  el.innerHTML = out;
+}
+document.querySelectorAll('.split-text').forEach(splitText);
 
 /* ===== REVEALS ===== */
-const revealEls = document.querySelectorAll('.rv, .stg');
-const revObs = new IntersectionObserver((entries)=>{
+const rvEls=document.querySelectorAll('.rv,.stg,.split-text');
+const rvObs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       e.target.classList.add('on');
-      revObs.unobserve(e.target);
+      rvObs.unobserve(e.target);
     }
   });
 },{threshold:.12,rootMargin:'0px 0px -60px 0px'});
-revealEls.forEach(el=>revObs.observe(el));
+rvEls.forEach(el=>rvObs.observe(el));
 
 /* ===== COUNTERS ===== */
-const counters = document.querySelectorAll('[data-count]');
-const cntObs = new IntersectionObserver((entries)=>{
+const counters=document.querySelectorAll('[data-count]');
+const cObs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       const el=e.target;
@@ -1371,11 +1615,35 @@ const cntObs = new IntersectionObserver((entries)=>{
         if(p<1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
-      cntObs.unobserve(el);
+      cObs.unobserve(el);
     }
   });
 },{threshold:.5});
-counters.forEach(el=>cntObs.observe(el));
+counters.forEach(el=>cObs.observe(el));
+
+/* ===== PARALLAX ===== */
+const parallaxEls = document.querySelectorAll('[data-parallax]');
+function updateParallax(){
+  const vh = innerHeight;
+  parallaxEls.forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    const speed = parseFloat(el.dataset.parallax);
+    // Only animate when in viewport
+    if(rect.bottom < -100 || rect.top > vh + 100) return;
+    const centerOffset = (rect.top + rect.height/2) - vh/2;
+    const y = -centerOffset * speed;
+    el.style.transform = `translate3d(0, ${y}px, 0)`;
+  });
+}
+// Use scroll + rAF
+let ticking = false;
+addEventListener('scroll',()=>{
+  if(!ticking){
+    requestAnimationFrame(()=>{updateParallax();ticking=false});
+    ticking = true;
+  }
+});
+updateParallax();
 
 /* ===== SERVICE CARD MOUSE TRACK ===== */
 document.querySelectorAll('.svc').forEach(card=>{
@@ -1386,7 +1654,7 @@ document.querySelectorAll('.svc').forEach(card=>{
   });
 });
 
-/* ===== THREE.JS PARTICLES ===== */
+/* ===== THREE PARTICLES ===== */
 const canvas=document.getElementById('bg-canvas');
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(75,innerWidth/innerHeight,.1,1000);
@@ -1401,19 +1669,13 @@ for(let i=0;i<N*3;i+=3){
   pos[i]=(Math.random()-.5)*22;
   pos[i+1]=(Math.random()-.5)*22;
   pos[i+2]=(Math.random()-.5)*22;
-  if(Math.random()<.5){
-    col[i]=0.12;col[i+1]=0.42;col[i+2]=1;
-  } else {
-    col[i]=1;col[i+1]=0.18;col[i+2]=0.33;
-  }
+  if(Math.random()<.5){col[i]=.12;col[i+1]=.42;col[i+2]=1}
+  else{col[i]=1;col[i+1]=.18;col[i+2]=.33}
 }
 const geo=new THREE.BufferGeometry();
 geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
 geo.setAttribute('color',new THREE.BufferAttribute(col,3));
-const mat=new THREE.PointsMaterial({
-  size:.025,vertexColors:true,transparent:true,opacity:.75,
-  blending:THREE.AdditiveBlending
-});
+const mat=new THREE.PointsMaterial({size:.025,vertexColors:true,transparent:true,opacity:.75,blending:THREE.AdditiveBlending});
 const pts=new THREE.Points(geo,mat);
 scene.add(pts);
 camera.position.z=5;
@@ -1427,10 +1689,9 @@ const clock=new THREE.Clock();
 function animate(){
   requestAnimationFrame(animate);
   const t=clock.getElapsedTime();
-  pts.rotation.y=t*.04;
-  pts.rotation.x=t*.015;
-  pts.rotation.y += (tx*.3 - pts.rotation.y)*.02;
-  pts.rotation.x += (ty*.3 - pts.rotation.x)*.02;
+  pts.rotation.y=t*.04;pts.rotation.x=t*.015;
+  pts.rotation.y+=(tx*.3-pts.rotation.y)*.02;
+  pts.rotation.x+=(ty*.3-pts.rotation.x)*.02;
   renderer.render(scene,camera);
 }
 animate();
@@ -1441,8 +1702,8 @@ addEventListener('resize',()=>{
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 });
 
-/* ===== REVIEWS DATA ===== */
-const reviews = [
+/* ===== REVIEWS ===== */
+const reviews=[
   {text:"Given my MSI laptop regarding heating and touchpad issue. Cost was low and service was prompt. Thank you team Crefo!",name:"Prakash",meta:"Laptop Repair",init:"P"},
   {text:"Changed my laptop screen recently — extremely happy with the customer support and service. Do check them out!",name:"Kavin",meta:"Screen Replacement",init:"K"},
   {text:"Gave my laptop for service. Really happy with their response and affordable price. Thank you!",name:"Habees R.",meta:"Laptop Service",init:"H"},
@@ -1452,7 +1713,6 @@ const reviews = [
   {text:"MacBook Pro crashed, jeopardizing my data. Crefo handled it with promptness and technical excellence.",name:"MacBook User",meta:"Data Recovery",init:"M"},
   {text:"Excellent service! Highly recommended for anyone needing reliable and top-notch laptop repairs in Coimbatore.",name:"Hanisha Ganesh",meta:"Laptop Service",init:"H"}
 ];
-
 const revTrack=document.getElementById('revTrack');
 function card(r){
   return `<div class="rev">
@@ -1461,24 +1721,20 @@ function card(r){
     <p class="rev-text">${r.text}</p>
     <div class="rev-author">
       <div class="rev-avatar">${r.init}</div>
-      <div>
-        <div class="rev-name">${r.name}</div>
-        <div class="rev-meta">${r.meta}</div>
-      </div>
+      <div><div class="rev-name">${r.name}</div><div class="rev-meta">${r.meta}</div></div>
     </div>
   </div>`;
 }
-const html = reviews.map(card).join('');
-revTrack.innerHTML = html + html;
+const html=reviews.map(card).join('');
+revTrack.innerHTML=html+html;
 
 /* ===== MOBILE MENU ===== */
-const menuBtn = document.querySelector('.menu-btn');
-const navLinks = document.querySelector('.nav-links');
+const menuBtn=document.querySelector('.menu-btn');
+const navLinks=document.querySelector('.nav-links');
 menuBtn.addEventListener('click',()=>{
-  const open = navLinks.style.display === 'flex';
-  if(open){
-    navLinks.style.display='none';
-  } else {
+  const open=navLinks.style.display==='flex';
+  if(open){navLinks.style.display='none'}
+  else{
     navLinks.style.display='flex';
     Object.assign(navLinks.style,{
       position:'fixed',top:'0',left:'0',width:'100%',height:'100vh',
@@ -1503,17 +1759,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-/* ===== HERO PARALLAX ===== */
+/* ===== HERO PARALLAX (independent) ===== */
 addEventListener('scroll',()=>{
   const s=scrollY;
   const heroInner=document.querySelector('.hero-inner');
-  if(heroInner && s<innerHeight){
+  if(heroInner&&s<innerHeight){
     heroInner.style.transform=`translateY(${s*.25}px)`;
     heroInner.style.opacity=1-(s/innerHeight)*.9;
-  }
-  const heroVideo=document.querySelector('.hero-video');
-  if(heroVideo && s<innerHeight){
-    heroVideo.style.transform=`translateY(${s*.4}px) scale(${1+s*.0003})`;
   }
 });
 </script>
