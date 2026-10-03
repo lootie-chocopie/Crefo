@@ -900,9 +900,19 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   .ft-bot{flex-direction:column;text-align:center}
   .rev{width:300px;padding:1.5rem}
   .scroll-hint{display:none}
-  .about-media{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"big" "tall" "short";height:auto}
-  .about-cell{aspect-ratio:4/3}
-  .about-cell-1{aspect-ratio:4/5}
+
+  /* About / Section 01: clean mobile stack */
+  .about-grid{display:flex;flex-direction:column;gap:2.75rem;align-items:stretch}
+  .about-content{order:1;width:100%;text-align:left}
+  .about-media{order:2;width:100%;display:grid;grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"big" "tall" "short";gap:1rem;height:auto;margin:0}
+  .about-cell{width:100%;aspect-ratio:16/10}
+  .about-cell-1{aspect-ratio:16/10}
+  .about-cell-2,.about-cell-3{aspect-ratio:16/9}
+  .about-badge{left:.85rem;bottom:.85rem}
+  .about-content .label{margin-bottom:1.1rem}
+  .about-content .title{margin-bottom:1.1rem}
+  .about-stats{margin-top:2rem;padding-top:2rem;gap:1.4rem}
+
   .stats-bar-shell{grid-template-columns:1fr;gap:2.5rem}
   .stat-big:not(:last-child)::after{display:none}
   .stats-bar{padding:4rem 1.5rem}
