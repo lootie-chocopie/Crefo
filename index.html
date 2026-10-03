@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crefo Technologies — Defensive & Offensive IT Excellence</title>
-<meta name="description" content="Crefo Technologies — Enterprise IT services, governance, and cyber defense.">
+<title>Crenfo Technologies — Defensive & Offensive IT Excellence</title>
+<meta name="description" content="Crenfo Technologies — Enterprise IT services, governance, and cyber defense.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,86 +59,81 @@ body.loading{overflow:hidden}
 #bg-canvas{position:fixed;inset:0;z-index:-1;pointer-events:none}
 
 /* =====================================================
-   LOADER — v4.3 (High Visibility)
+   LOADER — v4.2 (CSS-driven shield, bulletproof)
    ===================================================== */
 .loader{
   position:fixed;inset:0;z-index:999999;
-  background:radial-gradient(ellipse at 50% 50%, #0a0f1f 0%, #04050a 60%);
+  background:#04050a;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
 .loader-grid{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(30,107,255,.14) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,45,85,.14) 1px,transparent 1px);
+    linear-gradient(rgba(30,107,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,45,85,.05) 1px,transparent 1px);
   background-size:60px 60px;
-  mask-image:radial-gradient(circle at 50% 50%,#000 0%,transparent 80%);
-  opacity:1;
+  mask-image:radial-gradient(circle at 50% 50%,#000 0%,transparent 75%);
+  opacity:.9;
 }
 .loader-scanlines{
   position:absolute;inset:0;
-  background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);
-  pointer-events:none;opacity:.9;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px);
+  pointer-events:none;opacity:.6;
 }
 .loader-scan{
-  position:absolute;left:0;right:0;height:200px;
-  background:linear-gradient(180deg,transparent,rgba(0,212,255,.22),transparent);
+  position:absolute;left:0;right:0;height:140px;
+  background:linear-gradient(180deg,transparent,rgba(0,212,255,.08),transparent);
   animation:ldScan 3s linear infinite;
   pointer-events:none;
 }
 @keyframes ldScan{0%{top:-20%}100%{top:120%}}
 .loader-glow{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:1100px;height:1100px;border-radius:50%;
+  width:900px;height:900px;border-radius:50%;
   background:
-    radial-gradient(circle at 35% 50%,rgba(30,107,255,.55),transparent 55%),
-    radial-gradient(circle at 65% 50%,rgba(255,45,85,.45),transparent 55%),
-    radial-gradient(circle at 50% 50%,rgba(0,212,255,.18),transparent 70%);
-  pointer-events:none;filter:blur(30px);
+    radial-gradient(circle at 35% 50%,rgba(30,107,255,.22),transparent 55%),
+    radial-gradient(circle at 65% 50%,rgba(255,45,85,.18),transparent 55%);
+  pointer-events:none;filter:blur(20px);
 }
 .loader-vignette{
   position:absolute;inset:0;
-  background:radial-gradient(circle at 50% 50%,transparent 55%,rgba(0,0,0,.55) 100%);
+  background:radial-gradient(circle at 50% 50%,transparent 40%,rgba(0,0,0,.85));
   pointer-events:none;
 }
 
-/* HUD corners */
 .loader-corner{
   position:absolute;
-  font-family:var(--font-m);font-size:.75rem;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:#e8eaf2;
-  display:flex;align-items:center;gap:.55rem;
-  opacity:1;
-  text-shadow:0 0 8px rgba(0,212,255,.4);
+  font-family:var(--font-m);font-size:.68rem;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-2);
+  display:flex;align-items:center;gap:.5rem;
+  opacity:.75;
 }
 .loader-corner.tl{top:2rem;left:2rem}
 .loader-corner.tr{top:2rem;right:2rem}
 .loader-corner.bl{bottom:2rem;left:2rem}
 .loader-corner.br{bottom:2rem;right:2rem}
 .loader-corner .rec-dot{
-  width:8px;height:8px;border-radius:50%;background:#00ff88;
-  box-shadow:0 0 14px #00ff88, 0 0 24px rgba(0,255,136,.6);
-  position:relative;
+  width:7px;height:7px;border-radius:50%;background:#00ff88;
+  box-shadow:0 0 10px #00ff88;position:relative;
 }
 .loader-corner .rec-dot::after{
-  content:'';position:absolute;inset:-4px;border-radius:50%;
-  border:1.5px solid #00ff88;animation:ping 1.6s infinite;
+  content:'';position:absolute;inset:-3px;border-radius:50%;
+  border:1px solid #00ff88;animation:ping 1.6s infinite;
 }
-.loader-corner .hash{color:#00d4ff;font-weight:500}
+.loader-corner .hash{color:var(--blue)}
 
-/* Center */
 .loader-center{
-  position:relative;z-index:3;
+  position:relative;z-index:6;
   display:flex;flex-direction:column;align-items:center;
-  gap:2rem;padding:0 2rem;text-align:center;
+  gap:1.8rem;padding:0 2rem;text-align:center;
 }
 
 /* ---------- SHIELD ---------- */
 .loader-shield{
-  width:240px;
-  height:240px;
+  width:200px;
+  height:200px;
   position:relative;
 }
 .loader-shield svg{
@@ -147,9 +142,8 @@ body.loading{overflow:hidden}
   display:block;
   overflow:visible;
   filter:
-    drop-shadow(0 0 18px rgba(30,107,255,1))
-    drop-shadow(0 0 18px rgba(255,45,85,.9))
-    drop-shadow(0 0 40px rgba(0,212,255,.6));
+    drop-shadow(0 0 14px rgba(30,107,255,.75))
+    drop-shadow(0 0 14px rgba(255,45,85,.6));
 }
 
 .loader-shield .ld-path{
@@ -183,11 +177,10 @@ body.loading{overflow:hidden}
   transform-origin: center;
   opacity: 0;
   transform: scale(0);
-  filter:drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
 }
 @keyframes ldPop {
   0%   { opacity: 0; transform: scale(0); }
-  60%  { opacity: 1; transform: scale(1.5); }
+  60%  { opacity: 1; transform: scale(1.3); }
   100% { opacity: 1; transform: scale(1); }
 }
 .loader-shield .ld-node-1{ animation: ldPop .5s ease-out 2.5s forwards; }
@@ -202,107 +195,87 @@ body.loading{overflow:hidden}
 }
 @keyframes ldSpin { to { transform: rotate(360deg); } }
 
-/* ---------- Counter (HIGH VISIBILITY) ---------- */
+/* ---------- Counter ---------- */
 .loader-counter{
   font-family:var(--font-d);
-  font-size:clamp(3.5rem,9vw,7rem);
+  font-size:clamp(3rem,8vw,6rem);
   font-weight:600;
-  letter-spacing:-.05em;
+  letter-spacing:-.04em;
   line-height:1;
   display:flex;align-items:baseline;
-  color:#ffffff;
-  text-shadow:
-    0 0 20px rgba(0,212,255,.9),
-    0 0 40px rgba(30,107,255,.7),
-    0 0 80px rgba(255,45,85,.4);
-  position:relative;
+  background:linear-gradient(135deg,#1e6bff,#00d4ff 45%,#ff2d55 55%,#ff6b3d);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200% 200%;
+  animation:ldGrad 3s ease infinite;
 }
-.loader-counter::before{
-  content:'';
-  position:absolute;inset:-20px -40px;
-  background:radial-gradient(ellipse at center,rgba(0,212,255,.15),transparent 70%);
-  pointer-events:none;
-  z-index:-1;
+@keyframes ldGrad{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
 }
 .loader-counter .pct{
-  font-size:.38em;margin-left:.12em;
-  color:rgba(255,255,255,.75);
-  text-shadow:0 0 12px rgba(0,212,255,.6);
+  font-size:.4em;margin-left:.1em;
+  -webkit-text-fill-color:rgba(255,255,255,.4);
 }
 
-/* ---------- Status ---------- */
 .loader-status{
-  font-family:var(--font-m);font-size:.82rem;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:#dfe4f2;
+  font-family:var(--font-m);font-size:.78rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);
   min-height:1.2em;
   display:flex;align-items:center;gap:.6rem;
-  text-shadow:0 0 10px rgba(0,212,255,.35);
 }
 .loader-status::before{
-  content:'>';color:#00d4ff;
+  content:'>';color:var(--blue);
   animation:blink 1s steps(2,start) infinite;
-  font-weight:700;
-  text-shadow:0 0 12px #00d4ff;
 }
 @keyframes blink{to{opacity:0}}
 
-/* ---------- Progress bar ---------- */
 .loader-bar{
-  width:min(360px,72vw);height:3px;
-  background:rgba(255,255,255,.12);
-  border-radius:3px;overflow:hidden;
+  width:min(320px,70vw);height:2px;
+  background:rgba(255,255,255,.08);
+  border-radius:2px;overflow:hidden;
   position:relative;
-  box-shadow:inset 0 0 10px rgba(0,0,0,.5);
 }
 .loader-bar-fill{
   height:100%;width:0;
   background:linear-gradient(90deg,#1e6bff,#00d4ff 45%,#ff2d55 55%,#ff6b3d);
-  box-shadow:
-    0 0 14px rgba(0,212,255,.9),
-    0 0 28px rgba(255,45,85,.7);
+  box-shadow:0 0 20px rgba(30,107,255,.5),0 0 20px rgba(255,45,85,.4);
   transition:width .15s linear;
-  border-radius:3px;
 }
 
-/* ---------- Labels ---------- */
 .loader-labels{
   display:flex;align-items:center;gap:1rem;
-  font-family:var(--font-m);font-size:.72rem;
-  letter-spacing:.32em;text-transform:uppercase;
-  font-weight:500;
+  font-family:var(--font-m);font-size:.65rem;
+  letter-spacing:.3em;text-transform:uppercase;
 }
-.loader-labels .lbl-def{color:#4fc3ff;text-shadow:0 0 10px rgba(0,212,255,.7)}
-.loader-labels .lbl-sep{color:#8a90a8}
-.loader-labels .lbl-off{color:#ff6b8a;text-shadow:0 0 10px rgba(255,45,85,.7)}
+.loader-labels .lbl-def{color:var(--blue-2)}
+.loader-labels .lbl-sep{color:var(--ink-3)}
+.loader-labels .lbl-off{color:var(--red-2)}
 
-/* ---------- Access Granted stamp ---------- */
 .loader-stamp{
   position:absolute;top:50%;left:50%;
+  z-index:10;
   transform:translate(-50%,-50%) scale(.85);
   font-family:var(--font-d);
-  font-size:clamp(2.2rem,7vw,5.5rem);
+  font-size:clamp(2rem,6vw,5rem);
   font-weight:600;
   letter-spacing:-.02em;
   opacity:0;
-  color:#ffffff;
-  text-shadow:
-    0 0 24px rgba(0,212,255,.95),
-    0 0 48px rgba(30,107,255,.75),
-    0 0 90px rgba(255,45,85,.55);
+  background:linear-gradient(135deg,#1e6bff,#00d4ff 40%,#ff2d55 60%,#ff6b3d);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
   white-space:nowrap;
   z-index:5;
   pointer-events:none;
+  text-shadow:0 0 60px rgba(0,212,255,.3);
 }
 .loader-stamp::after{
-  content:'';position:absolute;left:0;right:0;bottom:-18px;
-  height:3px;
+  content:'';position:absolute;left:0;right:0;bottom:-14px;
+  height:2px;
   background:linear-gradient(90deg,transparent,#1e6bff,#00d4ff,#ff2d55,#ff6b3d,transparent);
-  box-shadow:0 0 20px rgba(0,212,255,.9), 0 0 30px rgba(255,45,85,.6);
-  border-radius:3px;
 }
 
-/* ---------- Split curtains ---------- */
 .curtain{
   position:absolute;top:0;bottom:0;width:50%;
   z-index:4;
@@ -340,12 +313,13 @@ body.loading{overflow:hidden}
     transform: scale(1) !important;
   }
   .loader-shield .ld-hex-ring{ animation: none !important; }
+  .gov-logo-card::before,.gov-logo-mark{animation:none !important}
 }
 
 @media(max-width:640px){
   .loader-corner.bl,.loader-corner.br{display:none}
-  .loader-corner{font-size:.62rem}
-  .loader-shield{width:170px;height:170px}
+  .loader-corner{font-size:.6rem}
+  .loader-shield{width:150px;height:150px}
 }
 
 /* =====================================================
@@ -367,7 +341,7 @@ nav{
   position:fixed;top:1.4rem;left:50%;
   transform:translateX(-50%);
   width:calc(100% - 2.8rem);max-width:1440px;
-  padding:.55rem .55rem .55rem 1.35rem;
+  padding:.42rem .45rem .42rem 1.05rem;
   background:rgba(5,6,10,.55);
   backdrop-filter:blur(28px) saturate(180%);
   -webkit-backdrop-filter:blur(28px) saturate(180%);
@@ -381,15 +355,15 @@ nav{
 }
 nav.scrolled{
   top:.75rem;
-  padding:.4rem .4rem .4rem 1.1rem;
+  padding:.34rem .36rem .34rem .9rem;
   background:rgba(5,6,10,.82);
   border-color:rgba(255,255,255,.09);
   box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.02),inset 0 1px 0 rgba(255,255,255,.06);
 }
 
-.logo-wrap{display:flex;align-items:center;gap:.7rem;cursor:none;text-decoration:none;flex-shrink:0}
+.logo-wrap{display:flex;align-items:center;gap:.58rem;cursor:none;text-decoration:none;flex-shrink:0}
 .logo-mark{
-  width:34px;height:34px;flex-shrink:0;
+  width:30px;height:30px;flex-shrink:0;
   filter:drop-shadow(0 0 10px rgba(30,107,255,.4));
   transition:filter .4s,transform .4s;
 }
@@ -398,7 +372,7 @@ nav.scrolled{
   transform:rotate(-6deg) scale(1.05);
 }
 .logo-text{
-  font-family:var(--font-d);font-size:1.18rem;font-weight:600;
+  font-family:var(--font-d);font-size:1.05rem;font-weight:600;
   letter-spacing:-.02em;line-height:1;
   display:flex;flex-direction:column;color:var(--ink);
 }
@@ -470,7 +444,7 @@ nav.scrolled{
 
 .nav-cta{
   display:inline-flex;align-items:center;gap:.5rem;
-  padding:.6rem 1.15rem .6rem 1.35rem;
+  padding:.5rem 1rem .5rem 1.1rem;
   background:linear-gradient(135deg,#1e6bff,#00d4ff);
   color:#fff;text-decoration:none;
   border-radius:100px;
@@ -570,13 +544,20 @@ nav.scrolled{
 .hero-eyebrow .slash{color:var(--red);font-weight:700}
 @keyframes ping{0%{transform:scale(.8);opacity:1}100%{transform:scale(2);opacity:0}}
 
-.hero h1{font-family:var(--font-d);font-size:clamp(2.8rem,7.5vw,7rem);font-weight:600;line-height:.98;letter-spacing:-.045em;margin-bottom:2rem;max-width:1200px}
+.hero h1{font-family:var(--font-d);font-size:clamp(2.35rem,6vw,5.6rem);font-weight:600;line-height:.98;letter-spacing:-.045em;margin-bottom:2rem;max-width:1200px}
 .hero h1 .line{display:block;overflow:hidden;padding:.05em 0}
-.hero h1 .line-inner{display:block;transform:translateY(105%)}
+.hero h1 .line-inner{display:block;transform:translateY(105%);position:relative}
 
 .grad-def{background:var(--grad-def);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .grad-off{background:var(--grad-off);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.outline-off{-webkit-text-stroke:1.5px rgba(255,45,85,.6);-webkit-text-fill-color:transparent}
+.outline-off{
+  color:#ffffff;
+  background:linear-gradient(135deg,#ff3d67 0%,#ff6b3d 45%,#ffd166 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 26px rgba(255,61,103,.28);
+  filter:drop-shadow(0 0 10px rgba(255,107,61,.18));
+}
 .serif{font-family:var(--font-s);font-style:italic;font-weight:400}
 
 .hero-bottom{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-top:1rem;opacity:0;transform:translateY(20px)}
@@ -623,7 +604,7 @@ section{padding:8rem 3rem;position:relative}
 .label::before{content:'';width:32px;height:1px;background:var(--grad-dual)}
 .label .num{color:var(--blue)}
 .label .num-r{color:var(--red)}
-.title{font-family:var(--font-d);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:500;line-height:1.05;letter-spacing:-.035em;margin-bottom:1.5rem}
+.title{font-family:var(--font-d);font-size:clamp(1.8rem,3.6vw,3.2rem);font-weight:500;line-height:1.05;letter-spacing:-.035em;margin-bottom:1.5rem}
 .title em{font-style:italic;font-family:var(--font-s);font-weight:400;background:var(--grad-dual);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .desc{font-size:1.02rem;line-height:1.8;color:var(--ink-2);max-width:620px;font-weight:300}
 .desc strong{color:var(--ink);font-weight:500}
@@ -700,7 +681,7 @@ section{padding:8rem 3rem;position:relative}
 .svc-arrow{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:var(--ink-2);font-size:.85rem;transition:all .4s}
 .svc:hover .svc-arrow{border-color:var(--blue);color:var(--blue);background:rgba(30,107,255,.08);transform:rotate(-45deg)}
 .svc.off:hover .svc-arrow{border-color:var(--red);color:var(--red);background:rgba(255,45,85,.08)}
-.svc h3{font-family:var(--font-d);font-size:1.3rem;font-weight:500;margin-bottom:.85rem;letter-spacing:-.02em}
+.svc h3{font-family:var(--font-d);font-size:1.1rem;font-weight:500;margin-bottom:.85rem;letter-spacing:-.02em}
 .svc p{font-size:.9rem;line-height:1.7;color:var(--ink-2);font-weight:300}
 .svc-featured{grid-column:span 2}
 
@@ -715,7 +696,7 @@ section{padding:8rem 3rem;position:relative}
 .why-card:nth-child(even):hover{border-color:rgba(255,45,85,.2)}
 .why-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(30,107,255,.08);border:1px solid rgba(30,107,255,.2);margin-bottom:1.5rem;font-size:1.4rem}
 .why-card:nth-child(even) .why-icon{background:rgba(255,45,85,.08);border-color:rgba(255,45,85,.2)}
-.why-card h4{font-family:var(--font-d);font-size:1.15rem;font-weight:500;margin-bottom:.75rem}
+.why-card h4{font-family:var(--font-d);font-size:1rem;font-weight:500;margin-bottom:.75rem}
 .why-card p{font-size:.88rem;line-height:1.7;color:var(--ink-2);font-weight:300}
 
 /* ===== GOVERNANCE ===== */
@@ -734,6 +715,14 @@ section{padding:8rem 3rem;position:relative}
 .gov-sub{font-family:var(--font-m);font-size:.7rem;color:var(--ink-2);letter-spacing:.05em}
 .gov-vis{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
 .gov-shield{width:100%;height:100%;max-width:500px;will-change:transform}
+.gov-logo-card{position:relative;width:min(430px,86%);aspect-ratio:1;border:1px solid rgba(255,255,255,.1);border-radius:32px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));box-shadow:0 35px 90px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.gov-logo-card::before{content:'';position:absolute;inset:4%;background:radial-gradient(circle at 35% 35%,rgba(0,212,255,.22),transparent 34%),radial-gradient(circle at 68% 66%,rgba(255,45,85,.18),transparent 34%);opacity:.65;transform:scale(.96);animation:govAmbient 8s ease-in-out infinite alternate;pointer-events:none}
+.gov-logo-card::after{content:'';position:absolute;inset:14px;border:1px solid rgba(255,255,255,.06);border-radius:24px;pointer-events:none}
+.gov-logo-mark{width:58%;max-width:220px;position:relative;z-index:2;filter:drop-shadow(0 0 24px rgba(0,212,255,.22)) drop-shadow(0 0 22px rgba(255,45,85,.16));animation:govFloat 7s ease-in-out infinite;will-change:transform}
+@keyframes govAmbient{0%{transform:scale(.96);opacity:.5}100%{transform:scale(1.04);opacity:.82}}
+@keyframes govFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media (prefers-reduced-motion: reduce){.gov-logo-card::before,.gov-logo-mark{animation:none!important}}
+.gov-logo-caption{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-family:var(--font-m);font-size:.62rem;letter-spacing:.24em;color:var(--ink-2);text-transform:uppercase;z-index:2}
 
 /* ===== PROCESS ===== */
 .process{background:var(--bg)}
@@ -744,10 +733,10 @@ section{padding:8rem 3rem;position:relative}
 .step:nth-child(even) .step-num{border-color:rgba(255,45,85,.35);color:var(--red);box-shadow:0 0 30px rgba(255,45,85,.15)}
 .step:hover .step-num{transform:scale(1.08);background:var(--bg-2);box-shadow:0 0 50px rgba(30,107,255,.3)}
 .step:nth-child(even):hover .step-num{box-shadow:0 0 50px rgba(255,45,85,.3)}
-.step h4{font-family:var(--font-d);font-size:1.15rem;font-weight:500;margin-bottom:.6rem}
+.step h4{font-family:var(--font-d);font-size:1rem;font-weight:500;margin-bottom:.6rem}
 .step p{font-size:.88rem;color:var(--ink-2);line-height:1.65;font-weight:300;max-width:240px;margin:0 auto}
 
-/* ===== GALLERY ===== */
+/* ===== GALLERY (clean bento grid) ===== */
 .gallery{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.04)}
 .gal-grid{
   display:grid;
@@ -808,7 +797,7 @@ section{padding:8rem 3rem;position:relative}
 .showreel-inner::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(30,107,255,.35),transparent 60%),radial-gradient(circle at 70% 50%,rgba(255,45,85,.3),transparent 60%),linear-gradient(180deg,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%)}
 .showreel-content{position:relative;z-index:2;text-align:center;padding:0 2rem;max-width:1000px}
 .showreel-content .label{color:var(--ink);justify-content:center}
-.showreel-content h2{font-family:var(--font-d);font-size:clamp(2.4rem,6vw,5rem);font-weight:500;line-height:1.02;letter-spacing:-.04em;margin-bottom:2rem}
+.showreel-content h2{font-family:var(--font-d);font-size:clamp(2rem,5vw,4.2rem);font-weight:500;line-height:1.02;letter-spacing:-.04em;margin-bottom:2rem}
 .showreel-content h2 em{font-style:italic;font-family:var(--font-s);font-weight:400;background:var(--grad-dual);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .showreel-content p{font-size:1.05rem;color:var(--ink-2);max-width:560px;margin:0 auto 2.5rem;line-height:1.75;font-weight:300}
 .play-btn{width:100px;height:100px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1.5px solid rgba(255,255,255,.2);color:var(--ink);font-size:1.8rem;cursor:none;transition:all .5s cubic-bezier(.16,1,.3,1);position:relative}
@@ -837,7 +826,7 @@ section{padding:8rem 3rem;position:relative}
 .cta{padding:10rem 3rem;text-align:center;position:relative;overflow:hidden}
 .cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(30,107,255,.1),transparent 60%);pointer-events:none}
 .cta::after{content:'';position:absolute;top:50%;right:0;transform:translateY(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(255,45,85,.08),transparent 60%);pointer-events:none}
-.cta h2{font-family:var(--font-d);font-size:clamp(2.4rem,6vw,5.5rem);font-weight:500;line-height:1;letter-spacing:-.045em;margin-bottom:2rem;position:relative}
+.cta h2{font-family:var(--font-d);font-size:clamp(2rem,5vw,4.5rem);font-weight:500;line-height:1;letter-spacing:-.045em;margin-bottom:2rem;position:relative}
 .cta h2 em{font-style:italic;font-family:var(--font-s);font-weight:400;background:var(--grad-dual);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .cta p{font-size:1.05rem;color:var(--ink-2);max-width:520px;margin:0 auto 3rem;line-height:1.7;position:relative;font-weight:300}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
@@ -911,30 +900,9 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   .ft-bot{flex-direction:column;text-align:center}
   .rev{width:300px;padding:1.5rem}
   .scroll-hint{display:none}
-  .about-media{
-    display:block;
-    height:auto;
-    position:relative;
-  }
-  .about-cell,
-  .about-cell-1,
-  .about-cell-2,
-  .about-cell-3{
-    position:relative;
-    width:100%;
-    height:auto;
-    aspect-ratio:16/10;
-    margin-bottom:.85rem;
-    transform:none !important;    /* ← kills parallax offset */
-  }
-  .about-cell:last-child{margin-bottom:0}
-  .about-cell-1{aspect-ratio:16/10}   /* same as others — uniform */
-  .about-badge{
-    bottom:.85rem;
-    left:.85rem;
-    font-size:.6rem;
-    padding:.5rem .85rem;
-  }
+  .about-media{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"big" "tall" "short";height:auto}
+  .about-cell{aspect-ratio:4/3}
+  .about-cell-1{aspect-ratio:4/5}
   .stats-bar-shell{grid-template-columns:1fr;gap:2.5rem}
   .stat-big:not(:last-child)::after{display:none}
   .stats-bar{padding:4rem 1.5rem}
@@ -947,6 +915,109 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   }
   .gal-item{aspect-ratio:4/3}
 }
+
+
+/* =====================================================
+   CLIENT BRIGHT GALAXY UPDATE — Crenfo Technologies
+   ===================================================== */
+:root{
+  --bg:#07101f;
+  --bg-2:#0b1730;
+  --bg-3:#101c3b;
+  --ink:#f7fbff;
+  --ink-2:#b9c8e4;
+  --ink-3:#7181a2;
+  --blue:#27a6ff;
+  --blue-2:#40e8ff;
+  --blue-glow:rgba(39,166,255,.58);
+  --red:#ff4d7a;
+  --red-2:#ff8b5c;
+  --red-glow:rgba(255,77,122,.5);
+  --grad-def:linear-gradient(135deg,#27a6ff 0%,#40e8ff 100%);
+  --grad-off:linear-gradient(135deg,#ff4d7a 0%,#ff9b62 100%);
+  --grad-dual:linear-gradient(135deg,#27a6ff 0%,#40e8ff 38%,#8c7cff 60%,#ff4d7a 82%,#ff9b62 100%);
+}
+body{
+  background:
+    radial-gradient(circle at 12% 12%,rgba(39,166,255,.16),transparent 28%),
+    radial-gradient(circle at 86% 16%,rgba(255,77,122,.13),transparent 30%),
+    radial-gradient(circle at 50% 92%,rgba(64,232,255,.10),transparent 34%),
+    var(--bg);
+}
+.bg-grid{
+  background-image:
+    linear-gradient(rgba(39,166,255,.085) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,77,122,.065) 1px,transparent 1px);
+  background-size:72px 72px;
+  opacity:1;
+}
+.noise{opacity:.02}
+.hero-video{opacity:0}
+.hero-video video{opacity:.22;filter:grayscale(.12) contrast(1.05) brightness(.82) saturate(1.2)}
+.hero-video::after{
+  background:
+    radial-gradient(circle at 20% 50%,rgba(39,166,255,.32),transparent 48%),
+    radial-gradient(circle at 80% 50%,rgba(255,77,122,.28),transparent 50%),
+    linear-gradient(to bottom,var(--bg) 0%,transparent 20%,transparent 80%,var(--bg) 100%);
+}
+.about,.why,.gallery,footer{background:rgba(9,20,40,.86)}
+.about{border-color:rgba(112,176,255,.12)}
+.marquee-wrap{background:rgba(8,18,36,.92);border-color:rgba(112,176,255,.12)}
+.gov{background:rgba(13,27,57,.92)}
+.stats-bar,.services,.process,.reviews,.showreel{background:rgba(5,16,33,.82)}
+.cta{background:radial-gradient(circle at 50% 50%,rgba(39,166,255,.07),transparent 55%),rgba(7,16,31,.82)}
+.nav-status,.label,.loader-corner{color:var(--ink-2)}
+.loader{background:#040b18}
+.loader-grid{
+  background-image:
+    linear-gradient(rgba(39,166,255,.09) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,77,122,.07) 1px,transparent 1px);
+}
+.loader-glow{
+  background:
+    radial-gradient(circle at 35% 50%,rgba(39,166,255,.34),transparent 55%),
+    radial-gradient(circle at 65% 50%,rgba(255,77,122,.26),transparent 55%);
+  filter:blur(14px);
+}
+.loader-counter{
+  position:relative;
+  z-index:8;
+  font-size:clamp(4.8rem,14vw,10rem);
+  font-weight:700;
+  letter-spacing:-.06em;
+  color:#f9fdff;
+  background:var(--grad-dual);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 12px rgba(64,232,255,.52)) drop-shadow(0 0 34px rgba(39,166,255,.32));
+  text-shadow:0 0 32px rgba(64,232,255,.25);
+}
+.loader-counter .pct{font-size:.34em;color:#d9f8ff;-webkit-text-fill-color:#d9f8ff;text-shadow:0 0 16px rgba(64,232,255,.6)}
+.loader-center{z-index:6}
+.loader-counter{z-index:8}
+.loader-stamp{z-index:10}
+.loader-status,.loader-labels{opacity:0;visibility:hidden}
+.loader-bar{width:min(380px,72vw);height:4px;background:rgba(255,255,255,.12);box-shadow:inset 0 0 12px rgba(39,166,255,.06)}
+.loader-bar-fill{background:var(--grad-dual);box-shadow:0 0 16px rgba(64,232,255,.65),0 0 30px rgba(255,77,122,.45)}
+.loader-stamp{font-size:clamp(2.4rem,7vw,6rem);filter:drop-shadow(0 0 24px rgba(64,232,255,.38))}
+.cursor-dot{width:7px;height:7px;background:#ffffff;mix-blend-mode:normal;box-shadow:0 0 12px rgba(64,232,255,.8)}
+.cursor-ring{
+  width:36px;height:36px;
+  border:1.5px solid rgba(64,232,255,.92);
+  box-shadow:0 0 18px rgba(39,166,255,.35);
+  transition:border-color .12s ease,box-shadow .12s ease,transform .12s ease;
+  mix-blend-mode:normal;
+  backdrop-filter:none;
+}
+.cursor-ring.right{border-color:rgba(255,104,144,.95);box-shadow:0 0 18px rgba(255,77,122,.32)}
+.cursor-ring.hover{width:36px;height:36px;background:transparent;backdrop-filter:none;transform:translate(-50%,-50%)}
+.cursor-ring.right.hover{background:transparent}
+.cursor-ring.click{width:24px;height:24px;transform:translate(-50%,-50%);background:rgba(255,255,255,.12);border-color:#fff;box-shadow:0 0 18px rgba(255,255,255,.28)}
+.nav-cta,.btn-def{box-shadow:0 10px 30px rgba(39,166,255,.34),0 0 28px rgba(64,232,255,.08)}
+.nav-cta:hover,.btn-def:hover{box-shadow:0 16px 42px rgba(39,166,255,.48),0 0 35px rgba(64,232,255,.14)}
+.svc:hover,.why-card:hover,.gal-item:hover,.rev:hover{box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 55px rgba(39,166,255,.13)}
+.svc.off:hover,.gal-item:nth-child(even):hover,.rev:nth-child(even):hover{box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 55px rgba(255,77,122,.12)}
+
 </style>
 </head>
 <body class="loading">
@@ -961,10 +1032,10 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   <div class="loader-scanlines"></div>
   <div class="loader-scan"></div>
 
-  <div class="loader-corner tl"><span class="hash">//</span> Crefo OS · v3.0</div>
+  <div class="loader-corner tl"><span class="hash">//</span> Crenfo OS · v3.0</div>
   <div class="loader-corner tr"><span class="rec-dot"></span> Secure Session</div>
   <div class="loader-corner bl">Coimbatore · IN</div>
-  <div class="loader-corner br">EST · 2013</div>
+  <div class="loader-corner br">EST · 2026</div>
 
   <div class="loader-center">
     <div class="loader-shield">
@@ -978,41 +1049,34 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
             <stop offset="0%" stop-color="#ff2d55"/>
             <stop offset="100%" stop-color="#ff6b3d"/>
           </linearGradient>
-          <filter id="ldGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
         </defs>
 
         <polygon points="100,15 175,50 175,120 100,185 25,120 25,50"
-          fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1.5"/>
+          fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
 
         <polygon class="ld-hex-ring" points="100,10 180,48 180,122 100,190 20,122 20,48"
-          fill="none" stroke="rgba(0,212,255,.55)" stroke-width="1.5"
-          stroke-dasharray="5 9"/>
+          fill="none" stroke="rgba(30,107,255,.30)" stroke-width="1"
+          stroke-dasharray="4 8"/>
 
         <path class="ld-path ld-left" pathLength="1"
           d="M100 25 L50 45 L50 105 C50 145 72 172 100 185"
-          stroke="url(#ld-blue)" stroke-width="6" filter="url(#ldGlow)"/>
+          stroke="url(#ld-blue)" stroke-width="4"/>
 
         <path class="ld-path ld-right" pathLength="1"
           d="M100 25 L150 45 L150 105 C150 145 128 172 100 185"
-          stroke="url(#ld-red)" stroke-width="6" filter="url(#ldGlow)"/>
+          stroke="url(#ld-red)" stroke-width="4"/>
 
         <line class="ld-path ld-divider" pathLength="1" x1="100" y1="25" x2="100" y2="185"
-          stroke="rgba(255,255,255,.75)" stroke-width="1.8" filter="url(#ldGlow)"/>
+          stroke="rgba(255,255,255,.45)" stroke-width="1"/>
 
         <path class="ld-path ld-center-c" pathLength="1"
           d="M128 72 C118 60 92 60 80 78 C70 96 74 118 88 130 C100 140 122 138 128 122"
-          stroke="#ffffff" stroke-width="5" filter="url(#ldGlow)"/>
+          stroke="rgba(255,255,255,.95)" stroke-width="3.5"/>
 
-        <circle class="ld-node ld-node-1" cx="100" cy="25" r="5" fill="#00d4ff"/>
-        <circle class="ld-node ld-node-2" cx="100" cy="185" r="5" fill="#ff6b3d"/>
-        <circle class="ld-node ld-node-3" cx="50" cy="105" r="4.5" fill="#1e6bff"/>
-        <circle class="ld-node ld-node-4" cx="150" cy="105" r="4.5" fill="#ff2d55"/>
+        <circle class="ld-node ld-node-1" cx="100" cy="25" r="4" fill="#00d4ff"/>
+        <circle class="ld-node ld-node-2" cx="100" cy="185" r="4" fill="#ff6b3d"/>
+        <circle class="ld-node ld-node-3" cx="50" cy="105" r="3.5" fill="#1e6bff"/>
+        <circle class="ld-node ld-node-4" cx="150" cy="105" r="3.5" fill="#ff2d55"/>
       </svg>
     </div>
 
@@ -1056,22 +1120,27 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
      ===================================================== -->
 <nav id="nav">
   <a href="#" class="logo-wrap">
-    <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo-mark" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-label="Crenfo Technologies logo">
       <defs>
-        <linearGradient id="lg-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#00d4ff"/>
+        <linearGradient id="crenfo-nav-a" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#40e8ff"/>
+          <stop offset=".52" stop-color="#27a6ff"/>
+          <stop offset="1" stop-color="#8c7cff"/>
         </linearGradient>
-        <linearGradient id="lg-red" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#ff2d55"/><stop offset="100%" stop-color="#ff6b3d"/>
+        <linearGradient id="crenfo-nav-b" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff4d7a"/>
+          <stop offset="1" stop-color="#ff9b62"/>
         </linearGradient>
       </defs>
-      <path d="M50 8 L18 22 L18 52 C18 72 32 86 50 94 L50 8 Z" fill="url(#lg-blue)" opacity="0.95"/>
-      <path d="M50 8 L82 22 L82 52 C82 72 68 86 50 94 L50 8 Z" fill="url(#lg-red)" opacity="0.95"/>
-      <path d="M62 38 C58 34 52 33 47 36 C41 40 40 48 43 54 C46 60 53 62 58 59 C60 58 61 57 62 55" stroke="#05060a" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.9"/>
-      <line x1="50" y1="8" x2="50" y2="94" stroke="#05060a" stroke-width="1.5" opacity="0.6"/>
+      <rect x="6" y="6" width="84" height="84" rx="24" fill="#081426" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
+      <path d="M48 14 75 26v22c0 18-10 26-27 34-17-8-27-16-27-34V26z" fill="none" stroke="url(#crenfo-nav-a)" stroke-width="4"/>
+      <path d="M61 34c-4-5-9-7-15-7-11 0-20 9-20 21s9 21 20 21c6 0 11-2 15-7" fill="none" stroke="url(#crenfo-nav-b)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M61 48h10M30 48H20" stroke="#f7fbff" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+      <circle cx="72" cy="48" r="3.2" fill="#40e8ff"/><circle cx="20" cy="48" r="3.2" fill="#ff6b86"/>
+      <circle cx="48" cy="14" r="2.4" fill="#f7fbff"/>
     </svg>
     <span class="logo-text">
-      <span>Crefo</span>
+      <span>Crenfo</span>
       <span class="sub">Technologies</span>
     </span>
   </a>
@@ -1125,7 +1194,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <span class="pulse"></span>
-      Trusted IT Partner <span class="slash">/</span> Since 2013 <span class="slash">/</span> Coimbatore
+      Trusted IT &amp; Cybersecurity Partner <span class="slash">/</span> 2026 <span class="slash">/</span> Coimbatore
     </div>
 
     <h1>
@@ -1136,7 +1205,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 
     <div class="hero-bottom">
       <p class="hero-desc">
-        Crefo Technologies fuses <strong>defensive IT infrastructure</strong> with <strong>offensive-grade governance</strong> — ISO 27001, ISO 22301, and beyond. From laptop service floors to boardroom certifications, we secure the entire stack.
+        Crenfo Technologies fuses <strong>defensive IT infrastructure</strong> with <strong>offensive-grade governance</strong> — ISO 27001, ISO 22301, and beyond. From endpoint service to network security and cybersecurity operations, we protect the entire stack.
       </p>
       <div class="hero-actions">
         <a href="#services" class="btn btn-def">
@@ -1167,7 +1236,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
     <span class="marquee-item">ISO 27001 <span class="diamond"></span></span>
     <span class="marquee-item">Networking <span class="diamond"></span></span>
     <span class="marquee-item">ISO 22301 <span class="diamond"></span></span>
-    <span class="marquee-item">Printer Maintenance <span class="diamond"></span></span>
+    <span class="marquee-item">Security Solutions <span class="diamond"></span></span>
     <span class="marquee-item">Desktop Service <span class="diamond"></span></span>
     <span class="marquee-item">Governance <span class="diamond"></span></span>
     <span class="marquee-item">AMC Services <span class="diamond"></span></span>
@@ -1175,7 +1244,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
     <span class="marquee-item">ISO 27001 <span class="diamond"></span></span>
     <span class="marquee-item">Networking <span class="diamond"></span></span>
     <span class="marquee-item">ISO 22301 <span class="diamond"></span></span>
-    <span class="marquee-item">Printer Maintenance <span class="diamond"></span></span>
+    <span class="marquee-item">Security Solutions <span class="diamond"></span></span>
     <span class="marquee-item">Desktop Service <span class="diamond"></span></span>
     <span class="marquee-item">Governance <span class="diamond"></span></span>
     <span class="marquee-item">AMC Services <span class="diamond"></span></span>
@@ -1203,7 +1272,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
         <div class="label rv">Who We Are <span class="num">/</span> <span class="num-r">01</span></div>
         <h2 class="title split-text rv">Engineering digital resilience for modern enterprises.</h2>
         <p class="desc rv" style="margin-bottom:1.25rem">
-          Founded in Coimbatore in 2013, Crefo Technologies began as a hands-on IT service house and grew into a full-spectrum technology partner. Today we operate at the intersection of <strong style="color:var(--blue)">defensive infrastructure</strong> and <strong style="color:var(--red)">offensive compliance strategy</strong>.
+          Founded in Coimbatore in 2026, Crenfo Technologies began as a hands-on IT service house and grew into a full-spectrum technology partner. Today we operate at the intersection of <strong style="color:var(--blue)">defensive infrastructure</strong> and <strong style="color:var(--red)">offensive compliance strategy</strong>.
         </p>
         <p class="desc rv" style="margin-bottom:1.25rem">
           From rapid laptop repair to enterprise-grade ISO 27001 certification readiness — one partner, end to end. We don't just fix devices. We secure entire organizations.
@@ -1212,8 +1281,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
         <div class="about-stats stg rv">
           <div class="stat"><div class="stat-num" data-count="5000">0</div><div class="stat-lbl">Devices Serviced</div></div>
           <div class="stat"><div class="stat-num" data-count="120">0</div><div class="stat-lbl">Enterprise Clients</div></div>
-          <div class="stat"><div class="stat-num" data-count="50">0</div><div class="stat-lbl">ISO Certifications</div></div>
-          <div class="stat"><div class="stat-num" data-count="12">0</div><div class="stat-lbl">Years of Excellence</div></div>
+          <div class="stat"><div class="stat-num" data-count="6">0</div><div class="stat-lbl">Core Service Areas</div></div>
+          <div class="stat"><div class="stat-num">2026</div><div class="stat-lbl">Established</div></div>
         </div>
       </div>
     </div>
@@ -1225,7 +1294,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   <div class="stats-bar-shell">
     <div class="stat-big rv"><div class="num" data-count="5000">0</div><div class="lbl">Devices Serviced</div></div>
     <div class="stat-big rv"><div class="num" data-count="120">0</div><div class="lbl">Enterprise Clients</div></div>
-    <div class="stat-big rv"><div class="num" data-count="50">0</div><div class="lbl">ISO Certifications</div></div>
+    <div class="stat-big rv"><div class="num" data-count="6">0</div><div class="lbl">Core Service Areas</div></div>
     <div class="stat-big rv"><div class="num" data-count="24">0</div><div class="lbl">Hour Response</div></div>
   </div>
 </section>
@@ -1251,18 +1320,18 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
         <p>Fast and reliable laptop repairs and maintenance services to keep your device running efficiently. All brands — Dell, HP, Lenovo, MacBook, Asus. Screen replacement, motherboard repair, data recovery, thermal upgrades, and same-day turnaround on select issues.</p>
       </div>
 
-      <div class="svc">
-        <div class="svc-top"><span class="svc-num">02 / DEFENSE</span><div class="svc-arrow">↗</div></div>
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=800&q=80" alt="Printer maintenance"></div>
-        <h3>Printer Maintenance</h3>
-        <p>Efficient printer maintenance for optimal performance and reliability. On-site and remote support across all major brands.</p>
+      <div class="svc off">
+        <div class="svc-top"><span class="svc-num">02 / CYBER</span><div class="svc-arrow">↗</div></div>
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80" alt="Cybersecurity operations"></div>
+        <h3>Security Solutions</h3>
+        <p>Practical cybersecurity solutions for endpoints and networks — security hardening, access controls, threat protection, and continuous security support.</p>
       </div>
 
       <div class="svc off">
-        <div class="svc-top"><span class="svc-num">03 / OFFENSE</span><div class="svc-arrow">↗</div></div>
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80" alt="Networking"></div>
-        <h3>Networking Solutions</h3>
-        <p>Professional networking for seamless connectivity. Structured cabling, firewalls, switches, routers, and Wi-Fi optimization.</p>
+        <div class="svc-top"><span class="svc-num">03 / NETWORK</span><div class="svc-arrow">↗</div></div>
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Routing and switching infrastructure"></div>
+        <h3>Routing &amp; Switching</h3>
+        <p>Reliable network infrastructure covering routing, switching, VLANs, structured connectivity, and Wi-Fi optimization for growing businesses.</p>
       </div>
 
       <div class="svc">
@@ -1273,10 +1342,10 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
       </div>
 
       <div class="svc off">
-        <div class="svc-top"><span class="svc-num">05 / OFFENSE</span><div class="svc-arrow">↗</div></div>
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80" alt="Laptop service"></div>
-        <h3>Laptop Service</h3>
-        <p>Expert laptop service for repairs, upgrades, and maintenance. Battery replacement, keyboard repair, thermal paste reapplication.</p>
+        <div class="svc-top"><span class="svc-num">05 / CYBER</span><div class="svc-arrow">↗</div></div>
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Firewall and network security"></div>
+        <h3>Firewall &amp; Network Security</h3>
+        <p>Firewall configuration, perimeter security, secure network segmentation, and policy tuning to protect business traffic and critical systems.</p>
       </div>
 
       <div class="svc">
@@ -1292,7 +1361,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 <!-- ===== WHY US ===== -->
 <section class="why">
   <div class="shell">
-    <div class="label rv">Why Crefo <span class="num">/</span> <span class="num-r">03</span></div>
+    <div class="label rv">Why Crenfo <span class="num">/</span> <span class="num-r">03</span></div>
     <h2 class="title split-text rv">Four reasons enterprises choose us.</h2>
     <p class="desc rv" style="margin-top:1rem">We're not just a service provider — we're an extension of your IT team.</p>
 
@@ -1311,45 +1380,44 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
     <div class="gov-grid">
       <div>
         <div class="label rv">Governance <span class="num-r">/ 04</span></div>
-        <h2 class="title split-text rv">Certifications that build trust.</h2>
+        <h2 class="title split-text rv">Cybersecurity governance that builds trust.</h2>
         <p class="desc rv">We guide organizations through the full certification lifecycle — gap analysis, documentation, internal audits, and final certification.</p>
 
         <ul class="gov-list stg rv">
           <li><span class="gov-badge">D</span><div class="gov-text"><span class="gov-name">ISO 27001</span><span class="gov-sub">Information Security Management</span></div></li>
           <li><span class="gov-badge">O</span><div class="gov-text"><span class="gov-name">ISO 22301</span><span class="gov-sub">Business Continuity Management</span></div></li>
-          <li><span class="gov-badge">D</span><div class="gov-text"><span class="gov-name">ISO 9001</span><span class="gov-sub">Quality Management Systems</span></div></li>
-          <li><span class="gov-badge">O</span><div class="gov-text"><span class="gov-name">ISO 20000</span><span class="gov-sub">IT Service Management</span></div></li>
+          <li><span class="gov-badge">D</span><div class="gov-text"><span class="gov-name">Vulnerability Assessment</span><span class="gov-sub">VAPT &amp; Security Testing</span></div></li>
+          <li><span class="gov-badge">O</span><div class="gov-text"><span class="gov-name">Firewall Security Review</span><span class="gov-sub">Rules, Policies &amp; Perimeter Controls</span></div></li>
           <li><span class="gov-badge">D</span><div class="gov-text"><span class="gov-name">GDPR & Privacy</span><span class="gov-sub">Data Privacy Compliance</span></div></li>
           <li><span class="gov-badge">O</span><div class="gov-text"><span class="gov-name">Risk Assessment</span><span class="gov-sub">Threat Modeling & Mitigation</span></div></li>
         </ul>
       </div>
 
       <div class="gov-vis rv">
-        <svg class="gov-shield" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" data-parallax="0.1">
-          <defs>
-            <linearGradient id="gs-blue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e6bff" stop-opacity=".9"/><stop offset="100%" stop-color="#00d4ff" stop-opacity=".7"/></linearGradient>
-            <linearGradient id="gs-red" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ff2d55" stop-opacity=".9"/><stop offset="100%" stop-color="#ff6b3d" stop-opacity=".7"/></linearGradient>
-            <radialGradient id="gs-glow"><stop offset="0%" stop-color="#1e6bff" stop-opacity=".3"/><stop offset="100%" stop-color="#1e6bff" stop-opacity="0"/></radialGradient>
-            <radialGradient id="gs-glow-r"><stop offset="0%" stop-color="#ff2d55" stop-opacity=".3"/><stop offset="100%" stop-color="#ff2d55" stop-opacity="0"/></radialGradient>
-          </defs>
-          <circle cx="140" cy="200" r="160" fill="url(#gs-glow)"/>
-          <circle cx="260" cy="200" r="160" fill="url(#gs-glow-r)"/>
-          <ellipse cx="200" cy="200" rx="170" ry="170" fill="none" stroke="rgba(30,107,255,.15)" stroke-width="1" stroke-dasharray="4 8"><animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="30s" repeatCount="indefinite"/></ellipse>
-          <ellipse cx="200" cy="200" rx="135" ry="135" fill="none" stroke="rgba(255,45,85,.15)" stroke-width="1" stroke-dasharray="4 8"><animateTransform attributeName="transform" type="rotate" from="360 200 200" to="0 200 200" dur="22s" repeatCount="indefinite"/></ellipse>
-          <path d="M200 50 L110 90 L110 200 C110 270 155 320 200 350 L200 50 Z" fill="url(#gs-blue)" opacity=".95"/>
-          <path d="M200 50 L290 90 L290 200 C290 270 245 320 200 350 L200 50 Z" fill="url(#gs-red)" opacity=".95"/>
-          <path d="M240 150 C225 135 195 130 175 145 C150 165 150 235 175 255 C195 270 225 265 240 250" stroke="#05060a" stroke-width="14" stroke-linecap="round" fill="none" opacity=".95"/>
-          <line x1="200" y1="50" x2="200" y2="350" stroke="#05060a" stroke-width="3" opacity=".7"/>
-          <circle cx="140" cy="140" r="4" fill="#05060a" opacity=".8"/>
-          <circle cx="140" cy="260" r="4" fill="#05060a" opacity=".8"/>
-          <circle cx="260" cy="140" r="4" fill="#05060a" opacity=".8"/>
-          <circle cx="260" cy="260" r="4" fill="#05060a" opacity=".8"/>
-          <line x1="140" y1="140" x2="175" y2="175" stroke="#05060a" stroke-width="1.5" opacity=".5"/>
-          <line x1="140" y1="260" x2="175" y2="225" stroke="#05060a" stroke-width="1.5" opacity=".5"/>
-          <line x1="260" y1="140" x2="225" y2="175" stroke="#05060a" stroke-width="1.5" opacity=".5"/>
-          <line x1="260" y1="260" x2="225" y2="225" stroke="#05060a" stroke-width="1.5" opacity=".5"/>
-          <text x="200" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#8a90a8" letter-spacing="4">SECURED · CERTIFIED · TRUSTED</text>
-        </svg>
+        <div class="gov-logo-card" aria-label="Crenfo Technologies cybersecurity logo">
+          <svg class="gov-logo-mark" viewBox="0 0 240 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Crenfo Technologies">
+            <defs>
+              <linearGradient id="govLogoBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1e6bff"/>
+                <stop offset="100%" stop-color="#00d4ff"/>
+              </linearGradient>
+              <linearGradient id="govLogoRed" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ff2d55"/>
+                <stop offset="100%" stop-color="#ff6b3d"/>
+              </linearGradient>
+            </defs>
+            <path d="M120 12 L38 48 L38 126 C38 184 76 224 120 248 L120 12 Z" fill="url(#govLogoBlue)"/>
+            <path d="M120 12 L202 48 L202 126 C202 184 164 224 120 248 L120 12 Z" fill="url(#govLogoRed)"/>
+            <path d="M154 91 C142 78 124 73 105 80 C84 88 76 109 80 132 C84 155 101 169 121 169 C135 169 147 163 157 151" fill="none" stroke="#05060a" stroke-width="15" stroke-linecap="round"/>
+            <path d="M120 12 V248" stroke="#05060a" stroke-width="3" opacity=".7"/>
+            <circle cx="72" cy="84" r="5" fill="#05060a" opacity=".8"/>
+            <circle cx="72" cy="172" r="5" fill="#05060a" opacity=".8"/>
+            <circle cx="168" cy="84" r="5" fill="#05060a" opacity=".8"/>
+            <circle cx="168" cy="172" r="5" fill="#05060a" opacity=".8"/>
+            <path d="M72 84 L92 104 M72 172 L92 152 M168 84 L148 104 M168 172 L148 152" stroke="#05060a" stroke-width="2" opacity=".55"/>
+          </svg>
+          <div class="gov-logo-caption">Secure · Network · Defend</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1373,7 +1441,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 <!-- ===== GALLERY ===== -->
 <section class="gallery" id="gallery">
   <div class="shell">
-    <div class="label rv">Inside Crefo <span class="num">/</span> <span class="num-r">06</span></div>
+    <div class="label rv">Inside Crenfo <span class="num">/</span> <span class="num-r">06</span></div>
     <h2 class="title split-text rv">Where defense meets delivery.</h2>
     <p class="desc rv" style="margin-top:1rem">Real workshops. Real infrastructure. Real results.</p>
 
@@ -1400,7 +1468,7 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
     <div class="showreel-content">
       <div class="label rv">Showreel <span class="num-r">/ 07</span></div>
       <h2 class="rv">Watch how we <em>redefine IT service.</em></h2>
-      <p class="rv">From the workshop floor to the boardroom — see the Crefo approach in motion.</p>
+      <p class="rv">From endpoint service to secure network infrastructure — see the Crenfo approach in motion.</p>
       <div class="rv" style="margin-top:1rem"><a href="#contact" class="play-btn">▶</a></div>
     </div>
   </div>
@@ -1419,10 +1487,10 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
 <section class="cta" id="contact">
   <div class="shell">
     <h2 class="rv">Ready to secure<br><em>your infrastructure?</em></h2>
-    <p class="rv">Whether you need a laptop revived or your entire organization ISO certified — one partner, end to end.</p>
+    <p class="rv">Whether you need endpoint support, secure networking, firewall protection, or cybersecurity guidance — one partner, end to end.</p>
     <div class="cta-btns rv">
       <a href="tel:+914224000000" class="btn btn-def"><span>Call +91 422 400 0000</span><span class="arrow">→</span></a>
-      <a href="mailto:hello@crefotech.in" class="btn btn-ghost">hello@crefotech.in</a>
+      <a href="mailto:info@crenfotech.in" class="btn btn-ghost">info@crenfotech.in</a>
     </div>
   </div>
 </section>
@@ -1432,19 +1500,28 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
   <div class="ft-grid">
     <div class="ft-brand">
       <a href="#" class="logo-wrap">
-        <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo-mark" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-label="Crenfo Technologies logo">
           <defs>
-            <linearGradient id="flg-blue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient>
-            <linearGradient id="flg-red" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ff2d55"/><stop offset="100%" stop-color="#ff6b3d"/></linearGradient>
+            <linearGradient id="crenfo-foot-a" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#40e8ff"/>
+              <stop offset=".52" stop-color="#27a6ff"/>
+              <stop offset="1" stop-color="#8c7cff"/>
+            </linearGradient>
+            <linearGradient id="crenfo-foot-b" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#ff4d7a"/>
+              <stop offset="1" stop-color="#ff9b62"/>
+            </linearGradient>
           </defs>
-          <path d="M50 8 L18 22 L18 52 C18 72 32 86 50 94 L50 8 Z" fill="url(#flg-blue)"/>
-          <path d="M50 8 L82 22 L82 52 C82 72 68 86 50 94 L50 8 Z" fill="url(#flg-red)"/>
-          <path d="M62 38 C58 34 52 33 47 36 C41 40 40 48 43 54 C46 60 53 62 58 59 C60 58 61 57 62 55" stroke="#05060a" stroke-width="5" stroke-linecap="round" fill="none"/>
-          <line x1="50" y1="8" x2="50" y2="94" stroke="#05060a" stroke-width="1.5" opacity=".6"/>
+          <rect x="6" y="6" width="84" height="84" rx="24" fill="#081426" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
+          <path d="M48 14 75 26v22c0 18-10 26-27 34-17-8-27-16-27-34V26z" fill="none" stroke="url(#crenfo-foot-a)" stroke-width="4"/>
+          <path d="M61 34c-4-5-9-7-15-7-11 0-20 9-20 21s9 21 20 21c6 0 11-2 15-7" fill="none" stroke="url(#crenfo-foot-b)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M61 48h10M30 48H20" stroke="#f7fbff" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+          <circle cx="72" cy="48" r="3.2" fill="#40e8ff"/><circle cx="20" cy="48" r="3.2" fill="#ff6b86"/>
+          <circle cx="48" cy="14" r="2.4" fill="#f7fbff"/>
         </svg>
-        <span class="logo-text"><span>Crefo</span><span class="sub">Technologies</span></span>
+        <span class="logo-text"><span>Crenfo</span><span class="sub">Technologies</span></span>
       </a>
-      <p>Defensive infrastructure. Offensive governance. One partner engineering digital resilience for modern enterprises since 2013.</p>
+      <p>Defensive infrastructure. Offensive governance. One partner engineering digital resilience for modern enterprises since 2026.</p>
       <address class="ft-addr">
         2nd Floor, Union Bank Building,<br>
         2/196-7, Sathy Rd, Kalavai Thottam,<br>
@@ -1457,9 +1534,10 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
       <h4>Services</h4>
       <ul>
         <li><a href="#services">Laptop Service</a></li>
-        <li><a href="#services">Printer Maintenance</a></li>
-        <li><a href="#services">Networking</a></li>
+        <li><a href="#services">Security Solutions</a></li>
+        <li><a href="#services">Routing &amp; Switching</a></li>
         <li><a href="#services">Desktop Service</a></li>
+        <li><a href="#services">Firewall &amp; Network Security</a></li>
         <li><a href="#services">AMC Services</a></li>
       </ul>
     </div>
@@ -1469,8 +1547,8 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
       <ul>
         <li><a href="#governance">ISO 27001</a></li>
         <li><a href="#governance">ISO 22301</a></li>
-        <li><a href="#governance">ISO 9001</a></li>
-        <li><a href="#governance">ISO 20000</a></li>
+        <li><a href="#governance">Vulnerability Assessment</a></li>
+        <li><a href="#governance">Firewall Security Review</a></li>
         <li><a href="#governance">Risk Assessment</a></li>
       </ul>
     </div>
@@ -1479,14 +1557,14 @@ footer{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.05);padding
       <h4>Contact</h4>
       <ul>
         <li><a href="tel:+914224000000">+91 422 400 0000</a></li>
-        <li><a href="mailto:hello@crefotech.in">hello@crefotech.in</a></li>
+        <li><a href="mailto:info@crenfotech.in">info@crenfotech.in</a></li>
         <li><a href="#">Mon–Sat · 9AM – 7PM</a></li>
       </ul>
     </div>
   </div>
 
   <div class="ft-bot">
-    <p>© 2025 Crefo Technologies — All rights reserved.</p>
+    <p>© 2026 Crenfo Technologies — All rights reserved.</p>
     <div class="socials">
       <a href="#" aria-label="LinkedIn">in</a>
       <a href="#" aria-label="Twitter">X</a>
@@ -1513,7 +1591,7 @@ try {
 } catch(e) { console.warn('Lenis failed:', e); }
 
 /* =====================================================
-   LOADER
+   LOADER — Shield drawn by CSS; JS handles counter + exit
    ===================================================== */
 const loader   = document.getElementById('loader');
 const ldCount  = document.getElementById('ldCount');
@@ -1540,82 +1618,91 @@ let statusIdx = 0;
 let exited = false;
 const ldCounter = { val: 0 };
 
+/* ---------- Exit sequence ---------- */
 function exitLoader(){
   if (exited) return;
   exited = true;
 
+  /* If GSAP is unavailable, keep the sequence readable with a simple delay. */
   if (typeof gsap === 'undefined') {
-    loader.style.display = 'none';
-    document.body.classList.remove('loading');
-    document.documentElement.classList.remove('loading');
-    if (lenis) lenis.start();
-    heroReveal();
+    ldStamp.style.opacity = '1';
+    ldStamp.style.transform = 'translate(-50%,-50%) scale(1)';
+    setTimeout(() => {
+      loader.style.display = 'none';
+      document.body.classList.remove('loading');
+      document.documentElement.classList.remove('loading');
+      if (lenis) lenis.start();
+      heroReveal();
+    }, 800);
     return;
   }
 
-  gsap.timeline({defaults:{ease:'power3.out'}})
-    .to(ldStamp, {opacity:1, scale:1, duration:.7})
-    .to(ldStamp, {opacity:1, duration:.55})
-    .to('.loader-center', {opacity:0, y:-24, duration:.5, ease:'power2.in'}, '+=.1')
-    .to('.loader-corner', {opacity:0, duration:.4}, '<')
+  const seq = gsap.timeline({defaults:{ease:'power3.out'}});
+  seq.set('.loader-status, .loader-labels', {autoAlpha:0, visibility:'hidden'})
+    .set(ldStamp, {autoAlpha:0, scale:.82})
+    .to('.loader-center', {opacity:0, y:-28, duration:.42, ease:'power2.in'})
+    .to('.loader-corner', {opacity:0, duration:.3}, '<')
     .to('.loader-grid, .loader-glow, .loader-scanlines, .loader-scan',
-        {opacity:0, duration:.5}, '<')
-    .to(ldStamp, {opacity:0, scale:1.1, duration:.5, ease:'power2.in'}, '<.2')
-    .to('.curtain-l', {xPercent:-100, duration:1.3, ease:'power4.inOut'}, '+=.15')
-    .to('.curtain-r', {xPercent: 100, duration:1.3, ease:'power4.inOut'}, '<')
+        {opacity:0, duration:.4}, '<')
+    .to({}, {duration:.18})
+    .to(ldStamp, {autoAlpha:1, scale:1, duration:.72, ease:'back.out(1.55)'})
+    .to(ldStamp, {autoAlpha:1, duration:.45})
+    .to(ldStamp, {autoAlpha:0, scale:1.06, duration:.35, ease:'power2.in'}, '+=.12')
+    .to('.curtain-l', {xPercent:-100, duration:.95, ease:'power3.inOut'}, '+=.08')
+    .to('.curtain-r', {xPercent:100, duration:.95, ease:'power3.inOut'}, '<')
     .add(() => {
       loader.style.display = 'none';
       document.body.classList.remove('loading');
       document.documentElement.classList.remove('loading');
       if (lenis) lenis.start();
       heroReveal();
-    }, '-=.3');
+    }, '-=.18');
 }
 
+/* ---------- Counter ---------- */
 if (typeof gsap !== 'undefined') {
   gsap.to(ldCounter, {
     val: 100,
-    duration: 3.2,
+    duration: 3.8,
     ease: 'power1.inOut',
+    onStart: () => {
+      ldCount.textContent = '00';
+      ldBar.style.width = '0%';
+      gsap.set('.loader-status, .loader-labels', {autoAlpha:0, visibility:'hidden'});
+      gsap.set(ldStamp, {autoAlpha:0, scale:.78});
+    },
     onUpdate: () => {
       const v = ldCounter.val;
       ldCount.textContent = String(Math.floor(v)).padStart(2,'0');
       ldBar.style.width = v + '%';
-
-      const idx = Math.min(
-        Math.floor(v / 100 * statusMessages.length),
-        statusMessages.length - 1
-      );
-      if (idx !== statusIdx) {
-        statusIdx = idx;
-        ldStatus.textContent = statusMessages[idx];
-        gsap.fromTo(ldStatus, {opacity:0, y:6}, {opacity:1, y:0, duration:.3});
-      }
     },
-    onComplete: exitLoader
+    onComplete: () => {
+      ldCount.textContent = '100';
+      ldBar.style.width = '100%';
+      exitLoader();
+    }
   });
 } else {
+  /* Fallback without GSAP */
   const start = performance.now();
   (function tick(now){
-    const p = Math.min((now - start) / 3200, 1);
+    const p = Math.min((now - start) / 3800, 1);
     const v = p * 100;
     ldCount.textContent = String(Math.floor(v)).padStart(2,'0');
     ldBar.style.width = v + '%';
-    const idx = Math.min(
-      Math.floor(v / 100 * statusMessages.length),
-      statusMessages.length - 1
-    );
-    if (idx !== statusIdx) {
-      statusIdx = idx;
-      ldStatus.textContent = statusMessages[idx];
-    }
     if (p < 1) requestAnimationFrame(tick);
-    else exitLoader();
+    else {
+      ldCount.textContent = '100';
+      ldBar.style.width = '100%';
+      exitLoader();
+    }
   })(performance.now());
 }
 
-setTimeout(exitLoader, 7000);
+/* ---------- Hard safety net ---------- */
+setTimeout(exitLoader, 9000);
 
+/* ---------- Hero reveal ---------- */
 function heroReveal(){
   if (typeof gsap === 'undefined') {
     document.querySelectorAll('.hero-video, .hero-eyebrow, .hero-bottom, .hero-side, .scroll-hint')
@@ -1643,28 +1730,25 @@ function heroReveal(){
    ===================================================== */
 const dot  = document.querySelector('.cursor-dot');
 const ring = document.querySelector('.cursor-ring');
-let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
 
 document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-  if (mx > innerWidth/2) ring.classList.add('right');
-  else ring.classList.remove('right');
+  const x = e.clientX;
+  const y = e.clientY;
+  dot.style.left = x + 'px';
+  dot.style.top = y + 'px';
+  ring.style.left = x + 'px';
+  ring.style.top = y + 'px';
+  ring.classList.toggle('right', x > innerWidth/2);
 });
-function animateRing(){
-  rx += (mx-rx)*.15; ry += (my-ry)*.15;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
 
 const hoverEls = document.querySelectorAll('a,button,.svc,.gal-item,.rev,.gov-list li,.menu-btn,.btn,.why-card,.step,.play-btn,.about-cell,.close-x,.mobile-drawer a');
 hoverEls.forEach(el => {
-  el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
-  el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
+  el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
 });
-document.addEventListener('mousedown',()=>ring.classList.add('click'));
-document.addEventListener('mouseup',()=>ring.classList.remove('click'));
+document.addEventListener('mousedown', () => ring.classList.add('click'));
+document.addEventListener('mouseup', () => ring.classList.remove('click'));
+document.addEventListener('mouseleave', () => ring.classList.remove('hover'));
 
 /* =====================================================
    NAV SCROLL + PROGRESS
@@ -1679,6 +1763,7 @@ addEventListener('scroll',()=>{
   progressBar.style.width = pct + '%';
 }, {passive:true});
 
+/* Live clock */
 const navClock = document.getElementById('navClock');
 function updateClock(){
   const d = new Date();
@@ -1790,20 +1875,20 @@ try {
   renderer.setSize(innerWidth, innerHeight);
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 
-  const N = 1200;
+  const N = 1500;
   const pos = new Float32Array(N*3);
   const col = new Float32Array(N*3);
   for(let i=0;i<N*3;i+=3){
     pos[i] = (Math.random()-.5)*22;
     pos[i+1] = (Math.random()-.5)*22;
     pos[i+2] = (Math.random()-.5)*22;
-    if(Math.random()<.5){col[i]=.12;col[i+1]=.42;col[i+2]=1}
-    else{col[i]=1;col[i+1]=.18;col[i+2]=.33}
+    if(Math.random()<.5){col[i]=.16;col[i+1]=.68;col[i+2]=1}
+    else{col[i]=1;col[i+1]=.28;col[i+2]=.52}
   }
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-  const mat = new THREE.PointsMaterial({size:.025, vertexColors:true, transparent:true, opacity:.75, blending:THREE.AdditiveBlending});
+  const mat = new THREE.PointsMaterial({size:.035, vertexColors:true, transparent:true, opacity:.92, blending:THREE.AdditiveBlending});
   const pts = new THREE.Points(geo, mat);
   scene.add(pts);
   camera.position.z = 5;
@@ -1817,9 +1902,7 @@ try {
   function animate(){
     requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
-    pts.rotation.y = t*.04; pts.rotation.x = t*.015;
-    pts.rotation.y += (tx*.3 - pts.rotation.y)*.02;
-    pts.rotation.x += (ty*.3 - pts.rotation.x)*.02;
+    pts.rotation.y = t*.035 + tx*.10; pts.rotation.x = t*.012 + ty*.05;
     renderer.render(scene, camera);
   }
   animate();
@@ -1835,13 +1918,13 @@ try {
    REVIEWS
    ===================================================== */
 const reviews = [
-  {text:"Given my MSI laptop regarding heating and touchpad issue. Cost was low and service was prompt. Thank you team Crefo!",name:"Prakash",meta:"Laptop Repair",init:"P"},
+  {text:"Given my MSI laptop regarding heating and touchpad issue. Cost was low and service was prompt. Thank you team Crenfo!",name:"Prakash",meta:"Laptop Repair",init:"P"},
   {text:"Changed my laptop screen recently — extremely happy with the customer support and service. Do check them out!",name:"Kavin",meta:"Screen Replacement",init:"K"},
   {text:"Gave my laptop for service. Really happy with their response and affordable price. Thank you!",name:"Habees R.",meta:"Laptop Service",init:"H"},
   {text:"Had a motherboard issue on my Asus Zephyrus S17. Professional, knowledgeable, attentive team. Highly recommend!",name:"Vasanth Kumar",meta:"Motherboard Repair",init:"V"},
   {text:"Outstanding experience. Courteous staff, clear pricing, fast turnaround. Laptop running smoothly ever since.",name:"Deepika N.",meta:"Laptop Repair",init:"D"},
   {text:"Gave my HP laptop for no-display issue. Serviced and delivered home next day. Works fast now. Thanks Harish!",name:"Prakash M.",meta:"HP Service",init:"P"},
-  {text:"MacBook Pro crashed, jeopardizing my data. Crefo handled it with promptness and technical excellence.",name:"MacBook User",meta:"Data Recovery",init:"M"},
+  {text:"MacBook Pro crashed, jeopardizing my data. Crenfo handled it with promptness and technical excellence.",name:"MacBook User",meta:"Data Recovery",init:"M"},
   {text:"Excellent service! Highly recommended for anyone needing reliable and top-notch laptop repairs in Coimbatore.",name:"Hanisha Ganesh",meta:"Laptop Service",init:"H"}
 ];
 const revTrack = document.getElementById('revTrack');
